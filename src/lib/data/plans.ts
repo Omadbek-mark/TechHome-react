@@ -1,34 +1,27 @@
-export const plans = [
-	{
-		title: 'Hot Discount Days',
-		desc: 'Each Friday we deliver highest discounts',
-		author: 'Chef Deming',
-		date: '30 min ago',
-		location: 'Turkey, Istambul',
-		img: '/img/discount.webp',
-	},
-	{
-		title: 'Coming Soon',
-		desc: 'Be ready for fresh Arrivals from Monday!',
-		author: 'Belissimo Arthur',
-		date: '2 days ago',
-		location: 'Turkey, Istambul',
-		img: '/img/fresh.webp',
-	},
-	{
-		title: 'New Project Lunch',
-		desc: 'New Restaurant is opening in Florida',
-		author: 'Morgan News',
-		date: '5 days ago',
-		location: 'USA, Florida',
-		img: '/img/coming.webp',
-	},
-	{
-		title: 'Join us on sns',
-		desc: '🥬 We are offering healthy food reciepies on sns',
-		author: 'Belissimo Agent',
-		date: 'A week ago',
-		location: 'Europe, France',
-		img: '/img/food-city.webp',
-	},
+export interface InstallmentPlan {
+  months: number;
+  label: string;
+  description: string;
+  markup: string;
+}
+
+export const plansData: InstallmentPlan[] = [
+  {
+    months: 0,
+    label: "Cash",
+    description: "Demo display of the full product price.",
+    markup: "Demo full price",
+  },
+  {
+    months: 6,
+    label: "6 months",
+    description: "Demo price breakdown over 6 months.",
+    markup: "Demo price breakdown",
+  },
+  {
+    months: 12,
+    label: "12 months",
+    description: "Demo price breakdown over 12 months.",
+    markup: "Demo price breakdown",
+  },
 ];

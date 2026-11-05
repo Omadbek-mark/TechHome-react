@@ -1,43 +1,18 @@
-import axios from "axios"; 
-import { serverApi } from "../../lib/config";
-import { Product, ProductInquiry } from "../../lib/types/product";
+import axios from 'axios';
+import { api } from '../../lib/api/client';
+import { serverApi } from '../../lib/config';
+import { Product, ProductInquiry, ProductPage } from '../../lib/types/product';
+import { catalogSearch } from '../../lib/catalog/query';
 
 class ProductService {
-  private readonly path: string;
-
-  constructor() {
-    this.path = serverApi;
-  }
-
   public async getProducts(input: ProductInquiry): Promise<Product[]> {
-    try {
-      let url = `${this.path}/product/all?order=${input.order}&page=${input.page}&limit=${input.limit}`;
-      if (input.productCollection)
-        url += `&productCollection=${input.productCollection}`;
-      if (input.search) url += `&search=${input.search}`;
-
-      const result = await axios.get(url);
-      console.log("getProducts:", result);
-
-      console.log("--RESULT.DATA:", result.data);
-      return result.data;
-    } catch (err) {
-      console.log("Error, getProducts:", err);
-      throw err;
-    }
+    return (await axios.get(`${serverApi}/product/all${catalogSearch(input)}`)).data;
   }
-
+  public async getCatalog(input: ProductInquiry): Promise<ProductPage> {
+    return (await axios.get(`${serverApi}/product/catalog${catalogSearch(input)}`)).data;
+  }
   public async getProduct(productId: string): Promise<Product> {
-    try {
-      const url = `${this.path}/product/${productId}`;
-      const result = await axios.get(url, { withCredentials: true });
-
-      return result.data;
-    } catch (err) {
-      console.log("Error, getProduct:", err);
-      throw err;
-    }
+    return (await api.get(`${serverApi}/product/${encodeURIComponent(productId)}`, { withCredentials: true })).data;
   }
-} 
-
+}
 export default ProductService;

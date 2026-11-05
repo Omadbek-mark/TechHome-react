@@ -1,26 +1,7 @@
 export const faq = [
-	{
-		question: 'How to make order?',
-		answer: 'You should choose products and make an order via basket!',
-	},
-	{
-		question: 'How long does delivery takes?',
-		answer: 'It depends on your location. The max delivery time is 1 hour!',
-	},
-	{
-		question: 'Is our details secure in this platform?',
-		answer: 'Of course, we take full responsibility for your provided user details!',
-	},
-	{
-		question: 'I am blocked, what should I do?',
-		answer: 'There is a reason for your block, please contact to us!',
-	},
-	{
-		question: 'How can I cancel order?',
-		answer: 'You can cancel your order any time easily, just go to your orders page!',
-	},
-	{
-		question: 'Who developed this platform?',
-		answer: 'ITC Global developers developed this platform!',
-	},
+  { question: 'Is payment real?', answer: 'No. Demo confirmation does not charge money. Do not enter card details.' },
+  { question: 'How can I compare products?', answer: 'Select up to three products in the catalog and open the comparison table.' },
+  { question: 'Why are some specifications missing?', answer: 'Only supplied catalog information is displayed. Missing details are not guessed.' },
+  { question: 'How do I cancel an order?', answer: 'Open your paused orders and choose Cancel. Stock is released once.' },
+  { question: 'Are delivery and warranty guaranteed here?', answer: 'This demo does not arrange delivery or warranty claims. Ask the seller for confirmed terms.' },
 ];

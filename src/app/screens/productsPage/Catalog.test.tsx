@@ -1,0 +1,95 @@
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { expect, it, vi } from 'vitest';
+import { Router, Route } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import { Provider } from 'react-redux';
+import { store } from '../../store';
+import { GlobalContext } from '../../hooks/useGlobals';
+import ProductsPage from './index';
+import { ComparisonProvider } from './Comparison';
+import ProductService from '../../services/ProductService';
+import { productsData } from '../../../lib/data/products';
+import { Product, ProductPage } from '../../../lib/types/product';
+function setup(path = '/products') {
+  const history = createMemoryHistory({ initialEntries: [path] });
+  render(<Provider store={store}><GlobalContext.Provider value={{ authState: 'guest', authMember: null, beginAuthChange: vi.fn(), refreshSession: vi.fn(), setAuthMember: vi.fn(), orderBuilder: new Date(), setOrderBuilder: vi.fn() }}><Router history={history}><Route path="/products"><ComparisonProvider><ProductsPage onAdd={vi.fn()} /></ComparisonProvider></Route></Router></GlobalContext.Provider></Provider>);
+  return history;
+}
+it('uses real total pages, URL filters and back navigation rather than a speculative next page', async () => {
+  const load = vi.spyOn(ProductService.prototype, 'getCatalog').mockResolvedValue({ items: [productsData[0]], total: 9, page: 1, limit: 8 });
+  const history = setup('/products?productCategory=KITCHEN&search=Kettle&onSale=true');
+  expect(await screen.findByText('9 products found')).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'Go to page 2' })).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: 'Go to page 3' })).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'Laundry' }));
+  await waitFor(() => expect(load).toHaveBeenLastCalledWith(expect.objectContaining({ page: 1, productCategory: 'LAUNDRY', search: 'Kettle', onSale: true })));
+  expect(history.location.search).toContain('productCategory=LAUNDRY');
+  act(() => history.goBack());
+  await waitFor(() => expect(load).toHaveBeenLastCalledWith(expect.objectContaining({ productCategory: 'KITCHEN' })));
+});
+it('separates errors from empty results and offers retry', async () => {
+  vi.spyOn(ProductService.prototype, 'getCatalog').mockRejectedValueOnce(new Error('offline')).mockResolvedValue({ items: [], total: 0, page: 1, limit: 8 });
+  setup();
+  expect(await screen.findByRole('alert')).toHaveTextContent('could not be loaded');
+  expect(screen.queryByText('No products match these filters.')).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'Retry catalog' }));
+  expect(await screen.findByText('No products match these filters.')).toBeInTheDocument();
+});
+it('ignores old catalog replies and normalizes a page that exceeds the current total', async () => {
+  let resolveOld!: (data: ProductPage) => void;
+  vi.spyOn(ProductService.prototype, 'getCatalog').mockImplementationOnce(() => new Promise(resolve => { resolveOld = resolve; })).mockResolvedValue({ items: [], total: 0, page: 1, limit: 8 });
+  const history = setup();
+  fireEvent.click(screen.getByRole('button', { name: 'Laundry' }));
+  await screen.findByText('No products match these filters.');
+  await act(async () => resolveOld({ items: [productsData[0]], total: 99, page: 1, limit: 8 }));
+  expect(screen.queryByText('99 products found')).not.toBeInTheDocument();
+  vi.mocked(ProductService.prototype.getCatalog).mockResolvedValueOnce({ items: [], total: 9, page: 99, limit: 8 }).mockResolvedValue({ items: [productsData[0]], total: 9, page: 2, limit: 8 });
+  act(() => history.push('/products?page=99'));
+  await waitFor(() => expect(history.location.search).toContain('page=2'));
+});
+it('reloads detail on ID changes, hides the previous product and supports failure/retry', async () => {
+  let next!: (value: Product) => void;
+  const get = vi.spyOn(ProductService.prototype, 'getProduct').mockResolvedValueOnce(productsData[0]).mockImplementationOnce(() => new Promise(resolve => { next = resolve; })).mockRejectedValueOnce(new Error('missing')).mockResolvedValue(productsData[1]);
+  const history = setup('/products/p01');
+  expect(await screen.findByRole('heading', { name: productsData[0].productName })).toBeInTheDocument();
+  act(() => history.push('/products/p02'));
+  expect(screen.getByRole('status')).toHaveTextContent('Loading product');
+  expect(screen.queryByRole('heading', { name: productsData[0].productName })).not.toBeInTheDocument();
+  await act(async () => next(productsData[1]));
+  expect(await screen.findByRole('heading', { name: productsData[1].productName })).toBeInTheDocument();
+  act(() => history.push('/products/missing'));
+  expect(await screen.findByRole('alert')).toHaveTextContent('no longer available');
+  fireEvent.click(screen.getByRole('button', { name: 'Retry product' }));
+  await screen.findByRole('heading', { name: productsData[1].productName });
+  expect(get).toHaveBeenLastCalledWith('missing');
+});
+it('limits comparison to three, marks missing specs and fetches current server prices on open', async () => {
+  const items = productsData.slice(0, 4).map((p, index) => ({ ...p, _id: 'comparison-' + index }));
+  vi.spyOn(ProductService.prototype, 'getCatalog').mockResolvedValue({ items, total: 4, page: 1, limit: 8 });
+  const get = vi.spyOn(ProductService.prototype, 'getProduct').mockImplementation(async id => ({ ...items.find(p => p._id === id)!, productPrice: 123.45, brand: undefined, widthCm: undefined }));
+  setup(); await screen.findByText('4 products found');
+  for (const p of items) fireEvent.click(screen.getByRole('button', { name: `Compare ${p.productName}` }));
+  expect(screen.getByText('3 / 3 selected')).toBeInTheDocument();
+  expect(screen.getByRole('alert')).toHaveTextContent('up to 3');
+  fireEvent.click(screen.getByRole('button', { name: 'Compare selected' }));
+  expect(await screen.findByRole('table', { name: 'Product comparison' })).toBeInTheDocument();
+  expect(get).toHaveBeenCalledTimes(3);
+  expect(screen.getAllByText('123.45')).toHaveLength(3);
+  expect(screen.getAllByText('Not provided').length).toBeGreaterThan(3);
+  fireEvent.click(screen.getByRole('button', { name: 'Close comparison' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+  fireEvent.click(screen.getByRole('button', { name: `Remove ${items[0].productName} from comparison` }));
+  expect(screen.getByText('2 / 3 selected')).toBeInTheDocument();
+});
+it('does not substitute stale selected prices when a comparison product is unavailable, and supports retry', async () => {
+  const product = productsData[0];
+  vi.spyOn(ProductService.prototype, 'getCatalog').mockResolvedValue({ items: [product], total: 1, page: 1, limit: 8 });
+  vi.spyOn(ProductService.prototype, 'getProduct').mockRejectedValueOnce(new Error('deleted')).mockResolvedValue({ ...product, productPrice: 999.99 });
+  setup(); await screen.findByText('1 products found');
+  fireEvent.click(screen.getByRole('button', { name: `Compare ${product.productName}` }));
+  fireEvent.click(screen.getByRole('button', { name: 'Compare selected' }));
+  expect(await screen.findByRole('alert')).toHaveTextContent('could not be loaded');
+  expect(screen.getAllByText('Unavailable').length).toBeGreaterThan(1);
+  fireEvent.click(screen.getByRole('button', { name: 'Retry comparison' }));
+  expect(await screen.findByText('999.99')).toBeInTheDocument();
+});

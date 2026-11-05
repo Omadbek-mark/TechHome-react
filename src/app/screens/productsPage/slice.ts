@@ -1,29 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { HomePageState, ProductsPageState } from "../../../lib/types/screen";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ProductsPageState } from "../../../lib/types/screen";
+import { Product } from "../../../lib/types/product";
 
+// No hardcoded seed anymore — this fills in from the real backend via
+// ProductService (see ProductList.tsx / ProductDetail.tsx).
 const initialState: ProductsPageState = {
-  restaurant: null,
-  chosenProduct: null,
   products: [],
+  chosenProduct: null,
 };
 
 const productsPageSlice = createSlice({
-  name: 'productsPage',
+  name: "productsPage",
   initialState,
   reducers: {
-    setRestaurant: (state, action) => {
-      state.restaurant = action.payload;
-    },
-    setChosenProduct: (state, action) => {
-      state.chosenProduct = action.payload;
-    },
-    setProducts: (state, action) => {
+    setProducts: (state, action: PayloadAction<Product[]>) => {
       state.products = action.payload;
+    },
+    setChosenProduct: (state, action: PayloadAction<Product | null>) => {
+      state.chosenProduct = action.payload;
     },
   },
 });
 
-export const { setRestaurant, setChosenProduct, setProducts } = productsPageSlice.actions;
+export const { setProducts, setChosenProduct } = productsPageSlice.actions;
 
 const ProductsPageReducer = productsPageSlice.reducer;
 export default ProductsPageReducer;

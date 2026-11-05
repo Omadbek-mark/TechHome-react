@@ -1,182 +1,192 @@
+/* ==========================================================================
+   HELP PAGE MODERN STYLES
+   ========================================================================== */
+
 .help-page {
   width: 100%;
-  height: auto;
+  min-height: 100vh;
   display: flex;
-  background: #f8f8ff;
+  justify-content: center;
+  background: var(--paper-elevated, #f8fafc);
+  padding: 40px 20px;
 }
 
 .help-page .help-container {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  flex-direction: row;
+  width: 100%;
+  max-width: 1100px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Tab Menu */
 .help-page .help-menu {
   width: 100%;
-  height: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  border-bottom: 1px solid #f8f8ff;
-}
-
-.help-page .help-menu .table-list {
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 30px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
 }
 
 .help-page .css-1gsv261 {
-  width: 75%;
+  width: 100% !important;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .help-page .css-heg063-MuiTabs-flexContainer {
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .help-page .css-19kzrtu {
-  padding-top: 24px;
+  padding-top: 30px;
 }
 
 .help-page .help-main-content {
   width: 100%;
-  height: 1000px;
+  min-height: 600px;
 }
 
+/* Rules / FAQ Box */
 .help-page .rules-box {
-  padding: 24px;
+  padding: 32px;
   width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f8f8ff;
-  border: 1px solid #ededed;
-  box-shadow: 0px 20px 30px rgba(25, 25, 46, 0.04);
-  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 10px 30px rgba(15, 23, 42, 0.04);
+  border-radius: 16px;
 }
 
 .rules-box .rules-frame {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 .rules-box .rules-frame p {
-  border-bottom: 1px solid #dddddd;
-  color: #000000;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
-  font-size: 1rem;
-  letter-spacing: 0.00938em;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
+.rules-box .rules-frame p:last-child {
+  border-bottom: none;
+}
+
+/* Accordion Styling */
 .help-page .accordion-menu {
   width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
+/* Admin Contact Letter Form */
 .help-page .admin-letter-box {
-  padding: 60px;
+  padding: 48px;
   width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f8f8ff;
-  border: 1px solid #ededed;
-  box-shadow: 0px 20px 30px rgba(25, 25, 46, 0.04);
-  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 12px 32px rgba(15, 23, 42, 0.05);
+  border-radius: 16px;
 }
 
 .help-page .admin-letter-box .admin-letter-container {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.help-page .admin-letter-container .admin-letter-frame {
-  margin-top: 30px;
+.help-page .admin-letter-frame {
   display: flex;
   flex-direction: column;
 }
 
 .help-page .admin-letter-frame span {
-  font-family: "ABeeZee";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-  color: #140342;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.3;
+  color: #0f172a;
+  letter-spacing: -0.4px;
 }
 
 .help-page .admin-letter-frame p {
-  margin-top: 20px;
-  font-family: "Sedan";
-  font-style: normal;
+  margin-top: 8px;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
+  line-height: 1.6;
+  color: #64748b;
 }
 
-.help-page .admin-letter-container .admin-letter-frame {
-  display: flex;
-  flex-direction: column;
-}
-
+/* Input & Textarea Fields */
 .help-page .admin-letter-frame .admin-input-box {
-  margin-top: 30px;
+  margin-top: 24px;
   width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
 }
 
 .help-page .admin-letter-frame .admin-input-box label {
-  font-family: "Verdana";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  color: #140342;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.help-page .admin-letter-frame .admin-input-box input,
+.help-page .admin-letter-frame .admin-input-box textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.25s ease;
 }
 
 .help-page .admin-letter-frame .admin-input-box input {
-  margin-top: 10px;
-  padding: 20px;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  background: #f8f8ff;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
-  font-family: "Verdana";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
+  height: 52px;
 }
 
 .help-page .admin-letter-frame .admin-input-box textarea {
-  margin-top: 10px;
-  padding: 20px;
-  width: 100%;
-  height: 150px;
-  display: flex;
-  background: #f8f8ff;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
-  font-family: "Verdana";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
+  height: 160px;
+  resize: vertical;
+}
+
+.help-page .admin-letter-frame .admin-input-box input:focus,
+.help-page .admin-letter-frame .admin-input-box textarea:focus {
+  background: #ffffff;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.12);
+}
+
+.help-page .admin-letter-frame .admin-input-box input::placeholder,
+.help-page .admin-letter-frame .admin-input-box textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Responsive Handling */
+@media (max-width: 768px) {
+  .help-page {
+    padding: 20px 12px;
+  }
+
+  .help-page .admin-letter-box {
+    padding: 24px;
+  }
+
+  .help-page .admin-letter-frame span {
+    font-size: 20px;
+  }
 }

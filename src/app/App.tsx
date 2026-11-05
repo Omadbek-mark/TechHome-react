@@ -1,6 +1,8 @@
+import { useI18n } from '../lib/i18n';
 import { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import HomePage from "./screens/homePage";
+import { ComparisonProvider } from "./screens/productsPage/Comparison";
 import ProductsPage from "./screens/productsPage";
 import OrdersPage from "./screens/ordersPage";
 import UserPage from "./screens/userPage";
@@ -10,21 +12,20 @@ import Footer from "./components/footer";
 import HelpPage from "./screens/helpPage";
 import useBasket from "./hooks/useBasket";
 import AuthenticationModal from "./components/auth";
+import ProtectedScreen from "./components/auth/ProtectedScreen";
 import { sweetErrorHandling, sweetTopSuccessAlert } from "../lib/sweetAlert";
-import { Message } from "@mui/icons-material";
 import { Messages } from "../lib/config";
 import MemberService from "./services/MemberService";
 import { useGlobals } from "./hooks/useGlobals";
-import { CartItem } from "../lib/types/search";
 import "../css/app.css";
 import "../css/navbar.css";
 import "../css/footer.css";
-import Test from "./screens/Test";
-import { T } from "../lib/types/common";
+import "../css/responsive.css";
 
 function App() {
+  const { t } = useI18n();
   const location = useLocation();
-  const { setAuthMember } = useGlobals();
+  const { setAuthMember, beginAuthChange } = useGlobals();
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
   const [signupOpen, setSignupOpen] = useState<boolean>(false);
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
@@ -40,15 +41,18 @@ function App() {
   };
   const handleCloseLogout = () => setAnchorEl(null);
   const handleLogoutRequest = async () => {
+    beginAuthChange();
     try {
       const member = new MemberService();
       await member.logout()
 
-      await sweetTopSuccessAlert("success", 1000);
+      await sweetTopSuccessAlert("Logged out.", 1000);
       setAuthMember(null);
     } catch (err) {
-      console.log(err);
       sweetErrorHandling(Messages.error1);
+    } finally {
+      setAuthMember(null);
+      setAnchorEl(null);
     }
   };
 
@@ -87,19 +91,20 @@ function App() {
         )}
       <Switch>
         <Route path="/products">
-          <ProductsPage onAdd={onAdd} />
+          <ComparisonProvider><Switch>
+            <Route path="/products"><ProductsPage onAdd={onAdd} /></Route>
+          </Switch></ComparisonProvider>
         </Route>
         <Route path="/orders">
-          <OrdersPage />
+          <ProtectedScreen><OrdersPage /></ProtectedScreen>
         </Route>
         <Route path="/member-page">
-          <UserPage />
+          <ProtectedScreen><UserPage /></ProtectedScreen>
         </Route>
         <Route path="/help">
           <HelpPage />
         </Route>
         <Route path="/">
-          {/* <Test /> */}
           <HomePage />
         </Route>
       </Switch>
@@ -109,6 +114,8 @@ function App() {
         signupOpen={signupOpen}
         loginOpen={loginOpen}
         handleLoginClose={handleLoginClose}
+        handleSignupOpen={() => { setLoginOpen(false); setSignupOpen(true); }}
+        handleLoginOpen={() => { setSignupOpen(false); setLoginOpen(true); }}
         handleSignupClose={handleSignupClose}
       />
     </>

@@ -1,25 +1,74 @@
-import React, { ReactNode, useState } from "react";
-import Cookies from "universal-cookie";
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import axios from "axios";
 import { Member } from "../../lib/types/member";
-import { GlobalContext } from "../hooks/useGlobals";
+import { GlobalContext, AuthState } from "../hooks/useGlobals";
+import MemberService from "../services/MemberService";
+import { invalidateApiSession, SESSION_EXPIRED_EVENT } from "../../lib/api/client";
+import { store } from "../store";
 
-const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const cookies = new Cookies();
-  if (!cookies.get("accessToken")) localStorage.removeItem("memberData");
+const sessionSignal = "techhome:session-change";
+function clearPrivateState() {
+  invalidateApiSession();
+  store.dispatch({ type: "session/cleared" });
+  try { localStorage.removeItem("memberData"); } catch { /* Storage may be disabled. */ }
+}
 
-  const [authMember, setAuthMember] = useState<Member | null>(
-    localStorage.getItem("memberData") 
-      ? JSON.parse(localStorage.getItem("memberData") as string)
-      : null
-  );
-  const [orderBuilder, setOrderBuilder] = useState<Date>(new Date());
-  console.log("=== verify ===");
+const ContextProvider = ({ children }: { children: ReactNode }) => {
+  const [authMember, updateMember] = useState<Member | null>(null);
+  const [authState, setAuthState] = useState<AuthState>("loading");
+  const [orderBuilder, setOrderBuilder] = useState(new Date());
+  const generation = useRef(0);
+  const identity = useRef<string | null>(null);
 
-  return (<GlobalContext.Provider
-    value={{ authMember, setAuthMember, orderBuilder, setOrderBuilder }}
-  >
+  const change = useCallback((member: Member | null, publish = false) => {
+    generation.current++;
+    const nextId = member?._id ?? null;
+    if (identity.current !== nextId || !member) clearPrivateState();
+    identity.current = nextId;
+    updateMember(member);
+    setAuthState(member ? "authenticated" : "guest");
+    if (publish) { try { localStorage.setItem(sessionSignal, `${Date.now()}-${Math.random()}`); } catch { /* Session still works in memory. */ } }
+  }, []);
+  const setAuthMember = useCallback((member: Member | null) => change(member, true), [change]);
+  const beginAuthChange = useCallback(() => {
+    generation.current++;
+    identity.current = null;
+    clearPrivateState();
+    updateMember(null);
+    setAuthState("loading");
+  }, []);
+  const refreshSession = useCallback(async () => {
+    const started = ++generation.current;
+    setAuthState((current) => current === "authenticated" ? current : "loading");
+    try {
+      const member = await new MemberService().getMemberDetail();
+      if (started === generation.current) change(member);
+    } catch (error) {
+      if (started !== generation.current || axios.isCancel(error)) return;
+      if (axios.isAxiosError(error) && error.response?.status === 401) change(null);
+      else setAuthState((current) => current === "authenticated" ? current : "error");
+    }
+  }, [change]);
+  useEffect(() => {
+    clearPrivateState();
+    const expired = () => change(null);
+    const crossTab = (event: StorageEvent) => {
+      if (event.key === sessionSignal) { beginAuthChange(); void refreshSession(); }
+    };
+    const focus = () => { beginAuthChange(); void refreshSession(); };
+    window.addEventListener(SESSION_EXPIRED_EVENT, expired);
+    window.addEventListener("storage", crossTab);
+    window.addEventListener("focus", focus);
+    void refreshSession();
+    return () => {
+      generation.current++;
+      window.removeEventListener(SESSION_EXPIRED_EVENT, expired);
+      window.removeEventListener("storage", crossTab);
+      window.removeEventListener("focus", focus);
+    };
+  }, [change, refreshSession, beginAuthChange]);
+  return <GlobalContext.Provider value={{ authMember, authState, setAuthMember, beginAuthChange, refreshSession, orderBuilder, setOrderBuilder }}>
     {children}
-  </GlobalContext.Provider>)
+  </GlobalContext.Provider>;
 };
-
 export default ContextProvider;

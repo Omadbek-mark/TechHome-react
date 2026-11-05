@@ -1,243 +1,42 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import { Fab, Stack, TextField } from "@mui/material";
-import styled from "styled-components";
-import LoginIcon from "@mui/icons-material/Login";
-import { LoginInput, Member, MemberInput } from "../../../lib/types/member";
-import { T } from "../../../lib/types/common";
-import { useRef } from "react";
-import { Messages } from "../../../lib/config";
-import MemberService from "../../services/MemberService";
-import { sweetErrorHandling } from "../../../lib/sweetAlert";
-import { useGlobals } from "../../hooks/useGlobals";
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 2, 2),
-  },
-}));
-
-const ModalImg = styled.img`
-  width: 62%;
-  height: 100%;
-  border-radius: 10px;
-  background: #000;
-  margin-top: 9px;
-  margin-left: 10px;
-`;
-
-interface AuthenticationModalProps {
-  signupOpen: boolean;
-  loginOpen: boolean;
-  handleSignupClose: () => void;
-  handleLoginClose: () => void;
-}
-
+import { useEffect, useRef, useState } from 'react';
+import { Alert, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
+import LoginIcon from '@mui/icons-material/Login';
+import '../../../css/auth.css';
+import MemberService from '../../services/MemberService';
+import { useGlobals } from '../../hooks/useGlobals';
+import { errorMessage, useI18n } from '../../../lib/i18n';
+interface AuthenticationModalProps { signupOpen: boolean; loginOpen: boolean; handleSignupClose: () => void; handleLoginClose: () => void; handleSignupOpen: () => void; handleLoginOpen: () => void; }
 export default function AuthenticationModal(props: AuthenticationModalProps) {
-  const { signupOpen, loginOpen, handleSignupClose, handleLoginClose } = props;
-  const classes = useStyles();
-  const [memberNick, setMemberNick] = useState<string>("");
-  const [memberPhone, setmemberPhone] = useState<string>("");
-  const [memberPassword, setmemberPassword] = useState<string>("");
-  const { setAuthMember } = useGlobals();
-
-  /** HANDLERS **/
-
-  const handleUserName = (e: T) => {
-    setMemberNick(e.target.value);
-  };
-
-  const handlePhone = (e: T) => {
-    setmemberPhone(e.target.value);
-  };
-
-  const handlePassword = (e: T) => {
-    setmemberPassword(e.target.value);
-  };
-
-  const handlePasswordKeyDown = (e: T) => {
-    if (e.key === "Enter" && signupOpen) {
-      handleSignupRequest().then();
-    } else if (e.key === "Enter" && loginOpen) {
-      handleLoginRequest().then();
-    }
-  };
-
-  const handleSignupRequest = async () => {
+  const { t } = useI18n(); const signup = props.signupOpen, open = signup || props.loginOpen;
+  const close = signup ? props.handleSignupClose : props.handleLoginClose;
+  const { setAuthMember, beginAuthChange } = useGlobals();
+  const [nick, setNick] = useState(''), [phone, setPhone] = useState(''), [password, setPassword] = useState('');
+  const [error, setError] = useState<unknown>(null), [pending, setPending] = useState(false);
+  const submitting = useRef(false);
+  useEffect(() => { setPassword(''); setError(null); }, [open, signup]);
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault(); if (submitting.current) return;
+    submitting.current = true; setPending(true); setError(null);
     try {
-      const isFullfill =
-        memberNick !== "" && memberPhone !== "" && memberPassword !== "";
-      if (!isFullfill) throw new Error(Messages.error3);
-
-      const signupInput: MemberInput = {
-        memberNick: memberNick,
-        memberPhone: memberPhone,
-        memberPassword: memberPassword,
-      };
-
-      const member = new MemberService();
-      const result = await member.signup(signupInput);
-
-      // Saving Authenticated User
-      setAuthMember(result);
-      handleSignupClose();
-    } catch (err) {
-      console.log(err);
-      handleSignupClose();
-      sweetErrorHandling(err).then();
-    }
+      beginAuthChange(); const service = new MemberService();
+      const member = signup ? await service.signup({ memberNick: nick, memberPhone: phone, memberPassword: password }) : await service.login({ memberNick: nick, memberPassword: password });
+      setAuthMember(member); close();
+    } catch (err) { setAuthMember(null); setError(err); }
+    finally { submitting.current = false; setPending(false); }
   };
-
-  const handleLoginRequest = async () => {
-    try {
-      const isFullfill =
-        memberNick !== "" && memberPassword !== "";
-      if (!isFullfill) throw new Error(Messages.error3);
-
-      const loginInput: LoginInput = {
-        memberNick: memberNick,
-        memberPassword: memberPassword,
-      };
-
-      const member = new MemberService();
-      const result = await member.login(loginInput);
-
-      // Saving Authenticated User
-      setAuthMember(result);
-      handleLoginClose();
-    } catch (err) {
-      console.log(err);
-      handleLoginClose();
-      sweetErrorHandling(err).then();
-    }
-  };
-
-  return (
-    <div> 
-      {/* signup modal */}
-      <Modal 
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={signupOpen}
-        onClose={handleSignupClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={signupOpen}>
-          <Stack
-            className={classes.paper}
-            direction={"row"}
-            sx={{ width: "800px" }}
-          >
-            <ModalImg src={"/img/auth.webp"} alt="camera" />
-            <Stack sx={{ marginLeft: "69px", alignItems: "center" }}>
-              <h2>Signup Form</h2>
-              <TextField
-                sx={{ marginTop: "7px" }}
-                id="outlined-basic"
-                label="username"
-                variant="outlined"
-                onChange={handleUserName}
-              />
-              <TextField
-                sx={{ my: "17px" }}
-                id="outlined-basic"
-                label="phone number"
-                variant="outlined"
-                onChange={handlePhone}
-              />
-              <TextField
-                id="outlined-basic"
-                label="password"
-                variant="outlined"
-                onChange={handlePassword}
-                onKeyDown={handlePasswordKeyDown}
-              />
-              <Fab
-                sx={{ marginTop: "30px", width: "120px" }}
-                variant="extended"
-                color="primary"
-                onClick={handleSignupRequest}
-              >
-                <LoginIcon sx={{ mr: 1 }} />
-                Signup
-              </Fab>
-            </Stack>
-          </Stack>
-        </Fade>
-      </Modal>
-
-      {/* login modal */}
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={loginOpen}
-        onClose={handleLoginClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={loginOpen}>
-          <Stack
-            className={classes.paper}
-            direction={"row"}
-            sx={{ width: "700px" }}
-          >
-            <ModalImg src={"/img/auth.webp"} alt="camera" />
-            <Stack
-              sx={{
-                marginLeft: "65px",
-                marginTop: "25px",
-                alignItems: "center",
-              }}
-            >
-              <h2>Login Form</h2>
-              <TextField
-                id="outlined-basic"
-                label="username"
-                variant="outlined"
-                sx={{ my: "10px" }}
-                onChange={handleUserName}
-              />
-              <TextField
-                id={"outlined-basic"}
-                label={"password"}
-                variant={"outlined"}
-                type={"password"}
-                onChange={handlePassword}
-                onKeyDown={handlePasswordKeyDown}
-              />
-              <Fab
-                sx={{ marginTop: "27px", width: "120px" }}
-                variant={"extended"}
-                color={"primary"}
-                onClick={handleLoginRequest}
-              >
-                <LoginIcon sx={{ mr: 1 }} />
-                Login
-              </Fab>
-            </Stack>
-          </Stack>
-        </Fade>
-      </Modal>
+  return <Dialog open={open} onClose={pending ? undefined : close} maxWidth={false} PaperProps={{ className: `auth-dialog${signup ? ' auth-dialog--signup' : ''}` }} aria-labelledby="auth-title">
+    <div className="auth-layout">
+    <img className="auth-image" src="/img/auth1.webp" alt="" />
+    <form className="auth-form" onSubmit={submit}>
+      <DialogTitle id="auth-title">{t(signup ? 'Signup Form' : 'Login Form')}</DialogTitle>
+      <DialogContent className="auth-fields">
+        {error !== null && <Alert severity="error">{errorMessage(error)}</Alert>}
+        <TextField autoFocus required fullWidth disabled={pending} label={t('username')} value={nick} onChange={event => setNick(event.target.value)} autoComplete="username" inputProps={{ minLength: signup ? 3 : 1, maxLength: signup ? 40 : 256 }} />
+        {signup && <TextField required fullWidth disabled={pending} label={t('phone number')} type="tel" value={phone} onChange={event => setPhone(event.target.value)} autoComplete="tel" inputProps={{ maxLength: 24 }} />}
+        <TextField required fullWidth disabled={pending} label={t('password')} type="password" value={password} onChange={event => setPassword(event.target.value)} autoComplete={signup ? 'new-password' : 'current-password'} inputProps={{ minLength: signup ? 8 : 1, maxLength: 72 }} />
+        <Button type="button" disabled={pending} onClick={signup ? props.handleLoginOpen : props.handleSignupOpen}>{t(signup ? 'Login' : 'Sign up')}</Button>
+      </DialogContent><DialogActions><Button disabled={pending} onClick={close}>{t('Close')}</Button><Button className="auth-submit" disabled={pending} type="submit" variant="contained" startIcon={<LoginIcon />}>{t(pending ? 'Please wait…' : signup ? 'Sign up' : 'Login')}</Button></DialogActions>
+    </form>
     </div>
-  );
+  </Dialog>;
 }

@@ -1,14 +1,13 @@
 /** SweetAlertHandling **/
 import Swal from "sweetalert2";
-import { Messages } from "./config";
+import { errorMessage, translate } from "./i18n";
 
 export const sweetErrorHandling = async (err: any) => {
-  const error = err.response?.data ?? err;
-  const message = error?.message ?? Messages.error1;
   await Swal.fire({
     icon: "error",
-    text: message,
-    showConfirmButton: false,
+    text: errorMessage(err),
+    showConfirmButton: true,
+    confirmButtonText: translate("Close"),
   });
 };
 
@@ -19,7 +18,7 @@ export const sweetTopSuccessAlert = async (
   await Swal.fire({
     position: "top-end",
     icon: "success",
-    title: msg,
+    title: translate(msg),
     showConfirmButton: false,
     timer: duration,
   });
@@ -39,7 +38,7 @@ export const sweetTopSmallSuccessAlert = async (
 
   Toast.fire({
     icon: "success",
-    title: msg,
+    title: translate(msg),
   }).then();
 };
 
@@ -50,7 +49,7 @@ export const sweetFailureProvider = (
 ) => {
   Swal.fire({
     icon: "error",
-    title: msg,
+    title: translate(msg),
     showConfirmButton: show_button,
     confirmButtonText: "OK",
   }).then(() => {

@@ -1,5 +1,8 @@
+import { errorMessage, useI18n } from '../../../lib/i18n';
+import { useLocation } from "react-router-dom";
 import { useState, SyntheticEvent, useEffect } from "react";
-import { Container, Stack, Box } from "@mui/material";
+import { Alert, Container, Stack, Box } from "@mui/material";
+import { Button } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -15,7 +18,6 @@ import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { useGlobals } from "../../hooks/useGlobals";
 import "../../../css/order.css";
-import { useHistory } from "react-router-dom";
 import { serverApi } from "../../../lib/config";
 import { MemberType } from "../../../lib/enums/member.enum";
 
@@ -27,9 +29,10 @@ const actionDispatch = (dispatch: Dispatch) => ({
 });
 
 export default function OrdersPage() {
+  const { t } = useI18n();
   const { setPausedOrders, setProcessOrders, setFinishedOrders } = actionDispatch(useDispatch());
-  const history = useHistory();
   const { orderBuilder, authMember } = useGlobals();
+  const location = useLocation<{ checkoutTotal?: number }>();
   const [value, setValue] = useState("1");
   const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
     page: 1,
@@ -37,57 +40,55 @@ export default function OrdersPage() {
     orderStatus: OrderStatus.PAUSE,
   });
 
+  const [loading, setLoading] = useState(true), [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState<unknown>(null), [attempt, setAttempt] = useState(0);
   useEffect(() => {
-    const order = new OrderService();
-    
-    order
-      .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PAUSE })
-      .then(data => setPausedOrders(data))
-      .catch((err) => console.log(err));
-    
-    order
-      .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PROCESS })
-      .then(data => setProcessOrders(data))
-      .catch((err) => console.log(err));
-    
-    order
-      .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.FINISH })
-      .then(data => setFinishedOrders(data))
-      .catch((err) => console.log(err));
-    
-  }, [orderInquiry, orderBuilder]);
-  
+    if (!authMember) return;
+    let active = true; setLoading(true); setError(null);
+    const service = new OrderService();
+    Promise.all([OrderStatus.PAUSE, OrderStatus.PROCESS, OrderStatus.FINISH].map(orderStatus => service.getMyOrders({ ...orderInquiry, orderStatus }))).then(([paused, process, finished]) => {
+      if (!active) return;
+      setPausedOrders(paused); setProcessOrders(process); setFinishedOrders(finished); setLoaded(true);
+    }).catch(err => { if (active) setError(err); }).finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
+  }, [orderInquiry, orderBuilder, authMember?._id, attempt]);
+
   /** HANDLERS **/
 
   const handleChange = (e: SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
-  if (!authMember) history.push("/");
+  if (!authMember) return null;
   return (
     <div className={"order-page"}>
       <Container className="order-container">
         <Stack className={"order-left"}>
+          <h1>{t("Orders")}</h1>
+          <Alert severity="info">{t("Demo payment: no money is charged. Do not enter card details.")}</Alert>
+          {typeof location.state?.checkoutTotal === "number" && <Alert severity="success">{t("Order placed. Server total: $")}{location.state.checkoutTotal.toFixed(2)}</Alert>}
+          {loading && <p role="status">{t("Loading orders…")}</p>}
+          {error !== null && <Alert severity="error">{errorMessage(error)}<Button onClick={() => setAttempt(value => value + 1)}>{t("Retry orders")}</Button></Alert>}
           <TabContext value={value}>
             <Box className={"order-nav-frame"}>
               <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                 <Tabs
                   value={value}
                   onChange={handleChange}
-                  aria-label="basic tabs example"
-                  className={"table_list"}
+                  aria-label={t("Order sections")}
+                  className={"table_list"} variant="scrollable" scrollButtons="auto"
                 >
-                  <Tab label="PAUSED ORDERS" value={"1"} />
-                  <Tab label="PROCESS ORDERS" value={"2"} />
-                  <Tab label="FINISHED ORDERS" value={"3"} />
+                  <Tab label={t("PAUSED ORDERS")} value={"1"} />
+                  <Tab label={t("PROCESS ORDERS")} value={"2"} />
+                  <Tab label={t("FINISHED ORDERS")} value={"3"} />
                 </Tabs>
               </Box>
             </Box>
-            <Stack className={"order-main-content"}>
+            {loaded && <Stack className={"order-main-content"}>
               <PausedOrders setValue={setValue} />
               <ProcessOrders setValue={setValue} />
               <FinishedOrders />
-            </Stack>
+            </Stack>}
           </TabContext>
         </Stack>
 
@@ -99,21 +100,21 @@ export default function OrdersPage() {
                   src={
                     authMember?.memberImage
                       ? `${serverApi}/${authMember.memberImage}`
-                      : "/icons/default-user.svg"
+                      : "/icons/default-user.png"
                   }
-                  className={"order-user-avatar"}
+                  className={"order-user-avatar"} alt={t("Profile image")} onError={event => { event.currentTarget.onerror = null; event.currentTarget.src = "/icons/default-user.png"; }}
                 />
                 <div className={"order-user-icon-box"}>
                   <img
-                    src={authMember?.memberType === MemberType.RESTAURANT
+                    src={authMember?.memberType === MemberType.STORE
                       ? "/icons/restaurant.svg"
                       : "/icons/user-badge.svg"}
                     className={"order-user-prof-img"}
-                  />
+                   alt="" />
                 </div>
               </div>
               <span className={"order-user-name"}>{authMember?.memberNick}</span>
-              <span className={"order-user-prof"}>{authMember?.memberType}</span>
+              <span className={"order-user-prof"}>{t(authMember?.memberType === MemberType.STORE ? "Store" : "Customer")}</span>
             </Box>
             <Box className={"liner"}></Box>
             <Box className={"order-user-address"}>
@@ -123,50 +124,11 @@ export default function OrdersPage() {
               <div className={"spec-address-txt"}>
                 {authMember?.memberAddress
                   ? authMember.memberAddress
-                  : "Do not exist"}
+                  : t("Not provided")}
               </div>
             </Box>
           </Box>
-          <Box className={"order-info-box"} sx={{ mt: "15px" }}>
-            <input
-              type={"text"}
-              name={"cardNumber"}
-              placeholder={"Card number : **** 4090 2002 7495"}
-              className={"card-input"}
-            />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <input
-                type={"text"}
-                name={"cardPeriod"}
-                placeholder={"07 / 24"}
-                className={"card-half-input"}
-              />
-              <input
-                type={"text"}
-                name={"cardCVV"}
-                placeholder={"CVV : 010"}
-                className={"card-half-input"}
-              />
-            </div>
-            <input
-              type={"text"}
-              name={"cardCreator"}
-              placeholder={"Justin Robertson"}
-              className={"card-input"}
-            />
-            <div className={"cards-box"}>
-              <img src={"/icons/western-card.svg"} />
-              <img src={"/icons/master-card.svg"} />
-              <img src={"/icons/paypal-card.svg"} />
-              <img src={"/icons/visa-card.svg"} />
-            </div>
-          </Box>
+
         </Stack>
       </Container>
     </div>

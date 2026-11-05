@@ -1,30 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { HomePageState } from "../../../lib/types/screen";
+import { Product } from "../../../lib/types/product";
 
-
+// No hardcoded seed anymore — both arrays fill in from the real backend
+// via ProductService (see index.tsx).
 const initialState: HomePageState = {
-  popularDishes: [],
-  newDishes: [],
-  topUsers: [],
+  popularProducts: [],
+  dealProducts: [],
 };
 
 const homePageSlice = createSlice({
-  name: 'homePage',
+  name: "homePage",
   initialState,
   reducers: {
-    setPopularDishes: (state, action) => {
-      state.popularDishes = action.payload;
+    setPopularProducts: (state, action: PayloadAction<Product[]>) => {
+      state.popularProducts = action.payload;
     },
-    setNewDishes: (state, action) => {
-      state.newDishes = action.payload;
-    },
-    setTopUsers: (state, action) => {
-      state.topUsers = action.payload;
+    setDealProducts: (state, action: PayloadAction<Product[]>) => {
+      state.dealProducts = action.payload;
     },
   },
 });
 
-export const { setPopularDishes, setNewDishes, setTopUsers } = homePageSlice.actions;
+export const { setPopularProducts, setDealProducts } = homePageSlice.actions;
 
 const HomePageReducer = homePageSlice.reducer;
 export default HomePageReducer;

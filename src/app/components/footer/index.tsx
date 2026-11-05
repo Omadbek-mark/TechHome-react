@@ -1,3 +1,4 @@
+import { useI18n } from '../../../lib/i18n';
 import React from "react";
 import { Box, Container, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -12,43 +13,41 @@ const Footers = styled.div`
 `;
 
 export default function Footer() {
+  const { t } = useI18n();
   const authMember = null;
 
   return (
-    <Footers>
+    <Footers className="footer">
       <Container>
         <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
           <Stack flexDirection={"column"} style={{ width: "340px" }}>
             <Box>
-              <img width={"100px"} src={"/icons/bumarak.svg"} />
+              <img width={"300px"} src={"/icons/TechHome.svg"}  alt="" />
             </Box>
-            <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, ZEN Bumarak Gurme aims to bring Turkish cuisine back. ZEN
-              Bumarak Gurme creates an illusion with its cuisine.
-            </Box>
+            <Box className={"foot-desc-txt"}>{t("Explore the catalog and compare available product specifications. Orders and payment confirmation are demonstrations.")}</Box>
+            <Box>{t("Andijan · Tashkent · Samarkand")}</Box>
             <Box className="sns-context">
-              <img src={"/icons/facebook.svg"} />
-              <img src={"/icons/twitter.svg"} />
-              <img src={"/icons/instagram.svg"} />
-              <img src={"/icons/youtube.svg"} />
+              <img src={"/icons/facebook.svg"}  alt="" />
+              <img src={"/icons/twitter.svg"}  alt="" />
+              <img src={"/icons/instagram.svg"}  alt="" />
+              <img src={"/icons/youtube.svg"}  alt="" />
             </Box>
           </Stack>
           <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
             <Stack>
               <Box>
-                <Box className={"foot-category-title"}>Bo'limlar</Box>
+                <Box className={"foot-category-title"}>{t("Sections")}</Box>
                 <Box className={"foot-category-link"}>
-                  <Link to="/">Home</Link>
-                  <Link to="/products">Products</Link>
-                  {authMember && <Link to="/orders">Orders</Link>}
-                  <Link to="/help">Help</Link>
+                  <Link to="/">{t("Home")}</Link>
+                  <Link to="/products">{t("Products")}</Link>
+                  {authMember && <Link to="/orders">{t("Orders")}</Link>}
+                  <Link to="/help">{t("Help")}</Link>
                 </Box>
               </Box>
             </Stack>
             <Stack sx={{ ml: "100px" }}>
               <Box>
-                <Box className={"foot-category-title"}>Find us</Box>
+                <Box className={"foot-category-title"}>{t("Find us")}</Box>
                 <Box
                   flexDirection={"column"}
                   sx={{ mt: "20px" }}
@@ -56,20 +55,20 @@ export default function Footer() {
                   justifyContent={"space-between"}
                 >
                   <Box flexDirection={"row"} className={"find-us"}>
-                    <span>L.</span>
-                    <div>Downtown, Dubai</div>
+                    <span>{t("L.")}</span>
+                    <div>{t("Tashkent City, Tashkent")}</div>
                   </Box>
                   <Box className={"find-us"}>
-                    <span>P.</span>
-                    <div>+971 4 554 7777</div>
+                    <span>{t("P.")}</span>
+                    <div>+998 33 707 00 29</div>
                   </Box>
                   <Box className={"find-us"}>
-                    <span>E.</span>
-                    <div>devexuz@gmail.com</div>
+                    <span>{t("E.")}</span>
+                    <div>{t("techHomeuz@gmail.com")}</div>
                   </Box>
                   <Box className={"find-us"}>
-                    <span>H.</span>
-                    <div>Visit 24 hours</div>
+                    <span>{t("H.")}</span>
+                    <div>{t("Mon–Sun · 9:00–20:00")}</div>
                   </Box>
                 </Box>
               </Box>
@@ -80,9 +79,7 @@ export default function Footer() {
           style={{ border: "1px solid #C5C8C9", width: "100%", opacity: "0.2" }}
           sx={{ mt: "80px" }}
         ></Stack>
-        <Stack className={"copyright-txt"}>
-          © Copyright Devex Global, All rights reserved.
-        </Stack>
+        <Stack className={"copyright-txt"}>{t("© Copyright Devex Global, All rights reserved.")}</Stack>
       </Container>
     </Footers>
   );

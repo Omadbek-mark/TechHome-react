@@ -1,73 +1,55 @@
-import React, { useEffect } from "react";
+import { useI18n } from '../../../lib/i18n';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { createSelector } from "@reduxjs/toolkit";
+import Box from "@mui/material/Box";
+import { Alert, Button } from "@mui/material";
 import Statistics from "./Statistics";
-import PopularDishes from "./PopularDishes";
-import NewDishes from "./NewDishes";
-import Advertisement from "./Advertisement";
-import ActiveUsers from "./ActiveUsers";
-import Events from "./Events";
-import { useDispatch } from "react-redux";
-import { Dispatch } from "@reduxjs/toolkit";
-import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
-import { Product } from "../../../lib/types/product";
+import PromoBanner from "./PromoBanner";
+import Deals from "./Deals";
+import { useAppDispatch } from "../../hooks";
+import { setPopularProducts, setDealProducts } from "./slice";
+import { retrievePopularProducts, retrieveDealProducts } from "./selector";
 import ProductService from "../../services/ProductService";
-import { ProductCollection } from "../../../lib/enums/product.enum";
-import MemberService from "../../services/MemberService";
-import { Member } from "../../../lib/types/member";
 import "../../../css/home.css";
-
+import PopularProducts from "./PopularProducts";
 
 /** REDUX SLICE & SELECTOR **/
-const actionDispatch = (dispatch: Dispatch) => ({
-  setPopularDishes: (data: Product[]) => dispatch(setPopularDishes(data)),
-  setNewDishes: (data: Product[]) => dispatch(setNewDishes(data)),
-  setTopUsers: (data: Member[]) => dispatch(setTopUsers(data)),
-});
+const homePageRetriever = createSelector(retrievePopularProducts, retrieveDealProducts, (popularProducts, dealProducts) => ({
+  popularProducts,
+  dealProducts,
+}));
 
 export default function HomePage() {
-  const { setPopularDishes, setNewDishes, setTopUsers } = actionDispatch(useDispatch());   /** Bu setPopularDishes esa bizning command **/
+  const { t } = useI18n();
+  const dispatch = useAppDispatch();
+  const { popularProducts, dealProducts } = useSelector(homePageRetriever);
 
+  const [attempt, setAttempt] = useState(0);
+  const [status, setStatus] = useState({ popular: "loading", deals: "loading" });
   useEffect(() => {
+    let active = true;
+    setStatus({ popular: "loading", deals: "loading" });
     const product = new ProductService();
-    product.getProducts({
-      page: 1,
-      limit: 4,
-      order: "productViews",
-      productCollection: ProductCollection.DISH,
-    })
-      .then((data) => setPopularDishes(data))
-      .catch((err) => console.log(err));
-    
-    product.getProducts({
-      page: 1,
-      limit: 4,
-      order: "createdAt",
-      // productCollection: ProductCollection.DISH,
-    })
-      .then((data) => setNewDishes(data))
-      .catch((err) => console.log(err));
-    
-    const member = new MemberService();
-    member
-      .getTopUsers()
-      .then(data => setTopUsers(data))
-      .catch((err) => console.log(err));
-  }, []);
 
+    product
+      .getProducts({ page: 1, limit: 4, order: "productViews" })
+      .then((data) => { if (active) { dispatch(setPopularProducts(data)); setStatus(value => ({ ...value, popular: "ready" })); } })
+      .catch(() => { if (active) setStatus(value => ({ ...value, popular: "error" })); });
+
+    product
+      .getProducts({ page: 1, limit: 4, onSale: true })
+      .then((data) => { if (active) { dispatch(setDealProducts(data)); setStatus(value => ({ ...value, deals: "ready" })); } })
+      .catch(() => { if (active) setStatus(value => ({ ...value, deals: "error" })); });
+    return () => { active = false; };
+  }, [dispatch, attempt]);
 
   return (
-    <div className={"homepage"}>
+    <Box className="homepage">
       <Statistics />
-      <PopularDishes />
-      <NewDishes />
-      <Advertisement />
-      <ActiveUsers />
-      <Events />
-    </div>
+      {status.popular === "ready" ? <PopularProducts products={popularProducts} /> : <Box className="th-container">{status.popular === "loading" ? <p role="status">{t("Loading popular products…")}</p> : <Alert severity="error">{t("Popular products could not be loaded.")}<Button onClick={() => setAttempt(value => value + 1)}>{t("Retry products")}</Button></Alert>}</Box>}
+      {status.deals === "ready" ? <Deals products={dealProducts} /> : <Box className="th-container">{status.deals === "loading" ? <p role="status">{t("Loading deals…")}</p> : <Alert severity="error">{t("Deals could not be loaded.")}<Button onClick={() => setAttempt(value => value + 1)}>{t("Retry deals")}</Button></Alert>}</Box>}
+      <PromoBanner />
+    </Box>
   );
 }
-
-
-/** 
-  yuqorida biz kiritgan malumotlar yani backend dan kelishi kerak bolgan malumotlar reducer ga dispatch lar orqali kirib kelyapti, va biz dispatch lar orqali setPopularDishes reducerga malumot ni payload qilyabmiz, va biz yuklagan malumot actionni payload qismidan qabul qilinyapti va state dagi setPopularDishes ni qiymatini ozgartiryapti.
-  Selector esa bizga eng oxirgi ozgargan qiymatni olib beryapti
-**/

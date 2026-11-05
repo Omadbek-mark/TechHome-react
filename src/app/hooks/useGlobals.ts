@@ -1,7 +1,12 @@
 import { createContext, useContext } from "react";
 import { Member } from "../../lib/types/member";
 
+export type AuthState = "loading" | "authenticated" | "guest" | "error";
+
 interface GlobalInterface {
+  authState: AuthState;
+  beginAuthChange: () => void;
+  refreshSession: () => Promise<void>;
   authMember: Member | null;
   setAuthMember: (member: Member | null) => void;
   orderBuilder: Date;

@@ -1,3 +1,4 @@
+import { useI18n } from '../../../lib/i18n';
 import React from "react";
 import { Box, Container, Stack, Tabs } from "@mui/material";
 import Typography from "@mui/material/Typography";
@@ -10,10 +11,11 @@ import Button from "@mui/material/Button";
 import TabContext from "@mui/lab/TabContext";
 import TabPanel from "@mui/lab/TabPanel";
 import "../../../css/help.css";
-import { faq } from "../../../lib/data/faq";
 import { terms } from "../../../lib/data/terms";
+import { faq } from "../../../lib/data/faq";
 
 export default function HelpPage() {
+  const { t } = useI18n();
   const [value, setValue] = React.useState("1");
 
   /** HANDLERS **/
@@ -31,12 +33,12 @@ export default function HelpPage() {
               <Tabs
                 value={value}
                 onChange={handleChange}
-                aria-label="lab API tabs example"
-                className={"table_list"}
+                aria-label={t("Help sections")}
+                className={"table_list"} variant="scrollable" scrollButtons="auto"
               >
-                <Tab label="TERMS" value={"1"} />
-                <Tab label="FAQ" value={"2"} />
-                <Tab label="CONTACT" value={"3"} />
+                <Tab label={t("TERMS")} value={"1"} />
+                <Tab label={t("FAQ")} value={"2"} />
+                <Tab label={t("CONTACT")} value={"3"} />
               </Tabs>
             </Box>
           </Box>
@@ -45,9 +47,7 @@ export default function HelpPage() {
               <TabPanel value={"1"}>
                 <Stack className={"rules-box"}>
                   <Box className={"rules-frame"}>
-                    {terms.map((value, number) => {
-                      return <p key={number}>{value}</p>;
-                    })}
+                    {terms.map(value => <div key={value.title}><h2>{t(value.title)}</h2><p>{t(value.body)}</p></div>)}
                   </Box>
                 </Stack>
               </TabPanel>
@@ -58,13 +58,13 @@ export default function HelpPage() {
                       <Accordion key={number}>
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
+                          aria-controls={`faq-panel-${number}`}
+                          id={`faq-heading-${number}`}
                         >
-                          <Typography>{value.question}</Typography>
+                          <Typography>{t(value.question)}</Typography>
                         </AccordionSummary>
-                        <AccordionDetails>
-                          <Typography>{value.answer}</Typography>
+                        <AccordionDetails id={`faq-panel-${number}`} aria-labelledby={`faq-heading-${number}`}>
+                          <Typography>{t(value.answer)}</Typography>
                         </AccordionDetails>
                       </Accordion>
                     );
@@ -72,52 +72,7 @@ export default function HelpPage() {
                 </Stack>
               </TabPanel>
               <TabPanel value={"3"}>
-                <Stack className={"admin-letter-box"}>
-                  <Stack className={"admin-letter-container"}>
-                    <Box className={"admin-letter-frame"}>
-                      <span>Contact us!</span>
-                      <p>Fill out below form to send a message!</p>
-                    </Box>
-                    <form
-                      action={"#"}
-                      method={"POST"}
-                      className={"admin-letter-frame"}
-                    >
-                      <div className={"admin-input-box"}>
-                        <label>Your name</label>
-                        <input
-                          type={"text"}
-                          name={"memberNick"}
-                          placeholder={"Type your name here"}
-                        />
-                      </div>
-                      <div className={"admin-input-box"}>
-                        <label>Your email</label>
-                        <input
-                          type={"text"}
-                          name={"memberEmail"}
-                          placeholder={"Type your email here"}
-                        />
-                      </div>
-                      <div className={"admin-input-box"}>
-                        <label>Message</label>
-                        <textarea
-                          name={"memberMsg"}
-                          placeholder={"Your message"}
-                        ></textarea>
-                      </div>
-                      <Box
-                        display={"flex"}
-                        justifyContent={"flex-end"}
-                        sx={{ mt: "30px" }}
-                      >
-                        <Button type={"submit"} variant="contained">
-                          Send
-                        </Button>
-                      </Box>
-                    </form>
-                  </Stack>
-                </Stack>
+                <Box className="th-container"><h2>{t("Contact")}</h2><p>{t("Contact the seller for confirmed product and purchase information.")}</p><a href="mailto:techHomeuz@gmail.com">{t("techHomeuz@gmail.com")}</a></Box>
               </TabPanel>
             </Stack>
           </Stack>
