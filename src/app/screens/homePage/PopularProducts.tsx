@@ -1,18 +1,11 @@
 import { useI18n } from '../../../lib/i18n';
-import React from "react";
 import Typography from "@mui/material/Typography";
 import ProductTile from "../../components/ProductTile";
 import { Product } from "../../../lib/types/product";
-import { Box, Button, Container, Stack } from "@mui/material";
-import Badge from "@mui/material/Badge";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import { Box } from "@mui/material";
 
 export default function PopularProducts({ products }: { products: Product[] }) {
   const { t } = useI18n();
-  const totalProductViews = products.reduce(
-    (sum, product) => sum + (product.productViews ?? 0),
-    0
-  );
 
   return (
     <Box component="section" className="th-section">
@@ -30,16 +23,6 @@ export default function PopularProducts({ products }: { products: Product[] }) {
           </Box>
         )}
       </Box>
-
-      {/* <Button className={"view-btn"} sx={{ right: "36px" }}>
-        <Badge badgeContent={totalProductViews} color="secondary">
-          <RemoveRedEyeIcon
-            sx={{
-              color: totalProductViews === 0 ? "#9aa0a6" : "var(--ink)",
-            }}
-          />
-        </Badge>
-      </Button> */}
     </Box>
   );
 }

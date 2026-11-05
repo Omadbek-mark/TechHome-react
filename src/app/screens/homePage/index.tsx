@@ -1,5 +1,5 @@
 import { useI18n } from '../../../lib/i18n';
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import Box from "@mui/material/Box";

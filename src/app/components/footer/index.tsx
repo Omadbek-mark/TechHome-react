@@ -1,5 +1,4 @@
 import { useI18n } from '../../../lib/i18n';
-import React from "react";
 import { Box, Container, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import styled from "styled-components";

@@ -1,4 +1,3 @@
-import { useI18n } from '../lib/i18n';
 import { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import HomePage from "./screens/homePage";
@@ -25,8 +24,8 @@ import "../css/responsive.css";
 import "../css/advisor.css";
 
 function App() {
-  const { t } = useI18n();
   const location = useLocation();
+  const Navbar = location.pathname === "/" ? HomeNavbar : OtherNavbar;
   const { setAuthMember, beginAuthChange } = useGlobals();
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
   const [signupOpen, setSignupOpen] = useState<boolean>(false);
@@ -49,8 +48,7 @@ function App() {
       await member.logout()
 
       await sweetTopSuccessAlert("Logged out.", 1000);
-      setAuthMember(null);
-    } catch (err) {
+    } catch {
       sweetErrorHandling(Messages.error1);
     } finally {
       setAuthMember(null);
@@ -60,37 +58,19 @@ function App() {
 
   return (
     <>
-      {location.pathname === "/" ? (
-        <HomeNavbar
-          cartItems={cartItems}
-          onAdd={onAdd}
-          onRemove={onRemove}
-          onDelete={onDelete}
-          onDeleteAll={onDeleteAll}
-          setSignupOpen={setSignupOpen}
-          setLoginOpen={setLoginOpen}
-          anchorEl={anchorEl}
-          handleLogoutClick={handleLogoutClick}
-          handleCloseLogout={handleCloseLogout}
-          handleLogoutRequest={handleLogoutRequest}
-
-
-        />
-      ) : (
-        <OtherNavbar
-          cartItems={cartItems}
-          onAdd={onAdd}
-          onRemove={onRemove}
-          onDelete={onDelete}
-          onDeleteAll={onDeleteAll}
-          setSignupOpen={setSignupOpen}
-          setLoginOpen={setLoginOpen}
-          anchorEl={anchorEl}
-          handleLogoutClick={handleLogoutClick}
-          handleCloseLogout={handleCloseLogout}
-          handleLogoutRequest={handleLogoutRequest}
-        />
-        )}
+      <Navbar
+        cartItems={cartItems}
+        onAdd={onAdd}
+        onRemove={onRemove}
+        onDelete={onDelete}
+        onDeleteAll={onDeleteAll}
+        setSignupOpen={setSignupOpen}
+        setLoginOpen={setLoginOpen}
+        anchorEl={anchorEl}
+        handleLogoutClick={handleLogoutClick}
+        handleCloseLogout={handleCloseLogout}
+        handleLogoutRequest={handleLogoutRequest}
+      />
       <Switch>
         <Route path={["/products", "/advisor"]}>
           <ComparisonProvider><Switch>

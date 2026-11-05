@@ -6,12 +6,10 @@
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
     "@mui/icons-material": "5.18.0",
-    "@mui/joy": "5.0.0-beta.52",
     "@mui/lab": "5.0.0-alpha.177",
     "@mui/material": "5.18.0",
     "@reduxjs/toolkit": "1.9.7",
     "axios": "1.21.0",
-    "moment": "2.31.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-is": "19.3.1",
@@ -20,8 +18,7 @@
     "reselect": "4.1.8",
     "styled-components": "5.3.11",
     "sweetalert2": "11.26.25",
-    "swiper": "14.4.0",
-    "web-vitals": "2.1.4"
+    "swiper": "14.4.0"
   },
   "devDependencies": {
     "@babel/core": "7.29.7",

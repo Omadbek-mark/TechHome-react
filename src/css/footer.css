@@ -9,7 +9,7 @@
       rgba(15, 23, 42, 0.75) 50%,
       rgba(15, 23, 42, 0.95) 100%
     ),
-    url("/public/img/footer.png") no-repeat center center / cover;
+    url("/img/footer.png") no-repeat center center / cover;
   color: #e2e8f0;
 }
 

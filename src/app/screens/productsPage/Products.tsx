@@ -1,5 +1,5 @@
 import { useI18n } from '../../../lib/i18n';
-import React, { ChangeEvent, useState, useEffect, useMemo } from "react";
+import { ChangeEvent, useState, useEffect, useMemo } from "react";
 import { Alert, Box, Button, Container, Stack, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";

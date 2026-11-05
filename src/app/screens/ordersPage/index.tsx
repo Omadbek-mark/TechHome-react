@@ -12,7 +12,7 @@ import ProcessOrders from "./ProcessOrders";
 import FinishedOrders from "./FinishedOrders";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
-import { Order, OrderInquiry } from "../../../lib/types/order";
+import { Order } from "../../../lib/types/order";
 import { setFinishedOrders, setPausedOrders, setProcessOrders } from "./slice";
 import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
@@ -34,11 +34,6 @@ export default function OrdersPage() {
   const { orderBuilder, authMember } = useGlobals();
   const location = useLocation<{ checkoutTotal?: number }>();
   const [value, setValue] = useState("1");
-  const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
-    page: 1,
-    limit: 5,
-    orderStatus: OrderStatus.PAUSE,
-  });
 
   const [loading, setLoading] = useState(true), [loaded, setLoaded] = useState(false);
   const [error, setError] = useState<unknown>(null), [attempt, setAttempt] = useState(0);
@@ -46,16 +41,16 @@ export default function OrdersPage() {
     if (!authMember) return;
     let active = true; setLoading(true); setError(null);
     const service = new OrderService();
-    Promise.all([OrderStatus.PAUSE, OrderStatus.PROCESS, OrderStatus.FINISH].map(orderStatus => service.getMyOrders({ ...orderInquiry, orderStatus }))).then(([paused, process, finished]) => {
+    Promise.all([OrderStatus.PAUSE, OrderStatus.PROCESS, OrderStatus.FINISH].map(orderStatus => service.getMyOrders({ page: 1, limit: 5, orderStatus }))).then(([paused, process, finished]) => {
       if (!active) return;
       setPausedOrders(paused); setProcessOrders(process); setFinishedOrders(finished); setLoaded(true);
     }).catch(err => { if (active) setError(err); }).finally(() => { if (active) setLoading(false); });
     return () => { active = false; };
-  }, [orderInquiry, orderBuilder, authMember?._id, attempt]);
+  }, [orderBuilder, authMember?._id, attempt]);
 
   /** HANDLERS **/
 
-  const handleChange = (e: SyntheticEvent, newValue: string) => {
+  const handleChange = (_event: SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
