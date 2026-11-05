@@ -1,0 +1,34 @@
+.advisor-page { padding-top: 40px; padding-bottom: 48px; min-height: 60vh; }
+.advisor-header { max-width: 800px; margin-bottom: 24px; }
+.advisor-header h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.2; margin: 12px 0; }
+.advisor-page > .MuiAlert-root { margin: 16px 0; }
+.advisor-limit { color: #49584f; font-size: 14px; }
+.advisor-form { margin: 24px 0; }
+.advisor-form .MuiFormLabel-root { color: #49584f; }
+.advisor-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.advisor-conversation { display: grid; gap: 12px; margin: 24px 0; }
+.advisor-turn { padding: 12px 20px; overflow-wrap: anywhere; }
+.advisor-turn p { margin: 8px 0; }
+.advisor-pending { display: flex; align-items: center; gap: 12px; }
+.advisor-product { min-width: 0; }
+.advisor-product > button { margin-top: 8px; }
+.advisor-page:has(+ .th-comparison-tray) { padding-bottom: 180px; }
+@media (max-width: 1200px) {
+  .desktop-links { display: none; }
+  .mobile-menu-button.MuiIconButton-root { display: inline-flex; }
+}
+@media (max-width: 640px) {
+  .advisor-page { padding-top: 24px; }
+  .advisor-actions { gap: 8px; }
+  .advisor-actions button { min-height: 40px; }
+}
+
+.advisor-examples { margin: 24px 0; }
+.advisor-examples h2 { font-size: 18px; margin-bottom: 12px; }
+.advisor-examples > div { display: flex; flex-wrap: wrap; gap: 10px; }
+.advisor-examples .MuiButton-root { text-align: left; text-transform: none; border-color: #ccd8d0; color: #1c4536; }
+.advisor-answer { border-top: 1px solid #e0e7e2; padding-top: 12px; margin-top: 12px; }
+.advisor-answer > strong { color: #1c4536; font-size: 14px; }
+.advisor-answer p { white-space: pre-wrap; line-height: 1.7; }
+.advisor-answer-safety { border-left: 3px solid #bd6b16; padding-left: 14px; }
+@media (max-width: 640px) { .advisor-examples .MuiButton-root { width: 100%; justify-content: flex-start; } }

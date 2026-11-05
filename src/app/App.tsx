@@ -2,6 +2,7 @@ import { useI18n } from '../lib/i18n';
 import { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import HomePage from "./screens/homePage";
+import AdvisorPage from "./screens/advisorPage";
 import { ComparisonProvider } from "./screens/productsPage/Comparison";
 import ProductsPage from "./screens/productsPage";
 import OrdersPage from "./screens/ordersPage";
@@ -21,6 +22,7 @@ import "../css/app.css";
 import "../css/navbar.css";
 import "../css/footer.css";
 import "../css/responsive.css";
+import "../css/advisor.css";
 
 function App() {
   const { t } = useI18n();
@@ -90,8 +92,9 @@ function App() {
         />
         )}
       <Switch>
-        <Route path="/products">
+        <Route path={["/products", "/advisor"]}>
           <ComparisonProvider><Switch>
+            <Route path="/advisor"><AdvisorPage /></Route>
             <Route path="/products"><ProductsPage onAdd={onAdd} /></Route>
           </Switch></ComparisonProvider>
         </Route>

@@ -22,7 +22,7 @@ export default function Navigation(props: NavigationProps) {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   useEffect(() => setOpen(false), [location.pathname, location.search]);
-  const links = [['/', 'Home'], ['/products', 'Products'], ...(authMember ? [['/orders', 'Orders'], ['/member-page', 'My Page']] : []), ['/help', 'Help']];
+  const links = [['/', 'Home'], ['/products', 'Products'], ['/advisor', 'Product Assistant'], ...(authMember ? [['/orders', 'Orders'], ['/member-page', 'My Page']] : []), ['/help', 'Help']];
   const navigation = <>{links.map(([path,label]) => <NavLink exact={path === '/'} key={path} to={path} activeClassName="underline">{t(label)}</NavLink>)}</>;
   return <Stack className="menu">
     <NavLink to="/" aria-label="TechHome"><img className="brand-logo" src="/icons/TechHome.svg" alt="TechHome" /></NavLink>
