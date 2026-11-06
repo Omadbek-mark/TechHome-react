@@ -21,8 +21,9 @@ function deferred<T>() {
   return { promise, resolve };
 }
 function Probe() {
-  const { authState, authMember, setAuthMember } = useGlobals();
+  const { authState, authMember, setAuthMember, beginAuthChange } = useGlobals();
   return <><span data-testid="state">{authState}:{authMember?.memberNick}</span>
+    <button onClick={beginAuthChange}>Start auth change</button>
     <button onClick={() => setAuthMember(second)}>Switch identity</button>
     <ProtectedScreen><div>Private screen</div></ProtectedScreen></>;
 }
@@ -71,5 +72,23 @@ it("a late restore response cannot replace a newly authenticated identity", asyn
   renderProbe();
   await user.click(screen.getByRole("button", { name: "Switch identity" }));
   await act(async () => profile.resolve(first));
+  expect(screen.getByTestId("state")).toHaveTextContent("authenticated:second-user");
+});
+
+it("defers background session changes while login or logout is pending", async () => {
+  const profile = vi.spyOn(MemberService.prototype, "getMemberDetail").mockResolvedValue(first);
+  const user = userEvent.setup();
+  renderProbe();
+  await screen.findByText("Private screen");
+
+  await user.click(screen.getByRole("button", { name: "Start auth change" }));
+  await act(async () => {
+    window.dispatchEvent(new Event("focus"));
+    window.dispatchEvent(new StorageEvent("storage", { key: "techhome:session-change" }));
+    window.dispatchEvent(new Event(SESSION_EXPIRED_EVENT));
+  });
+  expect(profile).toHaveBeenCalledTimes(1);
+  expect(screen.getByTestId("state")).toHaveTextContent("loading:");
+  await user.click(screen.getByRole("button", { name: "Switch identity" }));
   expect(screen.getByTestId("state")).toHaveTextContent("authenticated:second-user");
 });

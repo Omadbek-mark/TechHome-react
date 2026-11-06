@@ -18,6 +18,7 @@ const ContextProvider = ({ children }: { children: ReactNode }) => {
   const [authState, setAuthState] = useState<AuthState>("loading");
   const [orderBuilder, setOrderBuilder] = useState(new Date());
   const generation = useRef(0);
+  const authChanging = useRef(false);
   const identity = useRef<string | null>(null);
 
   const change = useCallback((member: Member | null, publish = false) => {
@@ -29,15 +30,23 @@ const ContextProvider = ({ children }: { children: ReactNode }) => {
     setAuthState(member ? "authenticated" : "guest");
     if (publish) { try { localStorage.setItem(sessionSignal, `${Date.now()}-${Math.random()}`); } catch { /* Session still works in memory. */ } }
   }, []);
-  const setAuthMember = useCallback((member: Member | null) => change(member, true), [change]);
-  const beginAuthChange = useCallback(() => {
+  const setAuthMember = useCallback((member: Member | null) => {
+    authChanging.current = false;
+    change(member, true);
+  }, [change]);
+  const resetSession = useCallback(() => {
     generation.current++;
     identity.current = null;
     clearPrivateState();
     updateMember(null);
     setAuthState("loading");
   }, []);
+  const beginAuthChange = useCallback(() => {
+    authChanging.current = true;
+    resetSession();
+  }, [resetSession]);
   const refreshSession = useCallback(async () => {
+    if (authChanging.current) return;
     const started = ++generation.current;
     setAuthState((current) => current === "authenticated" ? current : "loading");
     try {
@@ -51,11 +60,17 @@ const ContextProvider = ({ children }: { children: ReactNode }) => {
   }, [change]);
   useEffect(() => {
     clearPrivateState();
-    const expired = () => change(null);
-    const crossTab = (event: StorageEvent) => {
-      if (event.key === sessionSignal) { beginAuthChange(); void refreshSession(); }
+    const expired = () => {
+      if (!authChanging.current) change(null);
     };
-    const focus = () => { beginAuthChange(); void refreshSession(); };
+    const focus = () => {
+      if (authChanging.current) return;
+      resetSession();
+      void refreshSession();
+    };
+    const crossTab = (event: StorageEvent) => {
+      if (event.key === sessionSignal) focus();
+    };
     window.addEventListener(SESSION_EXPIRED_EVENT, expired);
     window.addEventListener("storage", crossTab);
     window.addEventListener("focus", focus);
@@ -66,7 +81,7 @@ const ContextProvider = ({ children }: { children: ReactNode }) => {
       window.removeEventListener("storage", crossTab);
       window.removeEventListener("focus", focus);
     };
-  }, [change, refreshSession, beginAuthChange]);
+  }, [change, refreshSession, resetSession]);
   return <GlobalContext.Provider value={{ authMember, authState, setAuthMember, beginAuthChange, refreshSession, orderBuilder, setOrderBuilder }}>
     {children}
   </GlobalContext.Provider>;
