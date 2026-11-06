@@ -92,3 +92,20 @@ it("defers background session changes while login or logout is pending", async (
   await user.click(screen.getByRole("button", { name: "Switch identity" }));
   expect(screen.getByTestId("state")).toHaveTextContent("authenticated:second-user");
 });
+
+it("rechecks the session on focus without dropping a valid identity while the request is pending", async () => {
+  const profile = deferred<Member>();
+  const detail = vi.spyOn(MemberService.prototype, "getMemberDetail")
+    .mockResolvedValueOnce(first)
+    .mockReturnValueOnce(profile.promise);
+  renderProbe();
+  await screen.findByText("Private screen");
+
+  await act(async () => window.dispatchEvent(new Event("focus")));
+  expect(detail).toHaveBeenCalledTimes(2);
+  expect(screen.getByText("Private screen")).toBeInTheDocument();
+  expect(screen.getByTestId("state")).toHaveTextContent("authenticated:server-user");
+
+  await act(async () => profile.resolve(first));
+  expect(screen.getByTestId("state")).toHaveTextContent("authenticated:server-user");
+});

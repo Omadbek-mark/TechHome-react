@@ -13,8 +13,7 @@ import HelpPage from "./screens/helpPage";
 import useBasket from "./hooks/useBasket";
 import AuthenticationModal from "./components/auth";
 import ProtectedScreen from "./components/auth/ProtectedScreen";
-import { sweetErrorHandling, sweetTopSuccessAlert } from "../lib/sweetAlert";
-import { Messages } from "../lib/config";
+import { sweetErrorHandling, sweetTopSmallSuccessAlert } from "../lib/sweetAlert";
 import MemberService from "./services/MemberService";
 import { useGlobals } from "./hooks/useGlobals";
 import "../css/app.css";
@@ -45,14 +44,14 @@ function App() {
     beginAuthChange();
     try {
       await new MemberService().logout();
-    } catch {
-      sweetErrorHandling(Messages.error1);
+    } catch (error) {
+      void sweetErrorHandling(error);
       return;
     } finally {
       setAuthMember(null);
       setAnchorEl(null);
     }
-    void sweetTopSuccessAlert("Logged out.", 1000);
+    void sweetTopSmallSuccessAlert("Logged out.", 1000);
   };
 
   return (

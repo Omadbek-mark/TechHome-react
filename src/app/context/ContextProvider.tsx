@@ -63,13 +63,11 @@ const ContextProvider = ({ children }: { children: ReactNode }) => {
     const expired = () => {
       if (!authChanging.current) change(null);
     };
-    const focus = () => {
-      if (authChanging.current) return;
+    const focus = () => { void refreshSession(); };
+    const crossTab = (event: StorageEvent) => {
+      if (event.key !== sessionSignal || authChanging.current) return;
       resetSession();
       void refreshSession();
-    };
-    const crossTab = (event: StorageEvent) => {
-      if (event.key === sessionSignal) focus();
     };
     window.addEventListener(SESSION_EXPIRED_EVENT, expired);
     window.addEventListener("storage", crossTab);

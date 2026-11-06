@@ -1,4 +1,4 @@
-import { api, SESSION_EXPIRED_EVENT } from "../../lib/api/client";
+import { api } from "../../lib/api/client";
 import { LoginInput, Member, MemberInput, MemberUpdateInput } from "../../lib/types/member";
 
 class MemberService {
@@ -9,8 +9,7 @@ class MemberService {
     return (await api.post("/member/login", input)).data.member;
   }
   public async logout(): Promise<boolean> {
-    try { return (await api.post("/member/logout", {})).data.logout; }
-    finally { window.dispatchEvent(new Event(SESSION_EXPIRED_EVENT)); }
+    return (await api.post("/member/logout", {})).data.logout;
   }
   public async getMemberDetail(): Promise<Member> {
     return (await api.get("/member/detail")).data;
