@@ -44,16 +44,15 @@ function App() {
   const handleLogoutRequest = async () => {
     beginAuthChange();
     try {
-      const member = new MemberService();
-      await member.logout()
-
-      await sweetTopSuccessAlert("Logged out.", 1000);
+      await new MemberService().logout();
     } catch {
       sweetErrorHandling(Messages.error1);
+      return;
     } finally {
       setAuthMember(null);
       setAnchorEl(null);
     }
+    void sweetTopSuccessAlert("Logged out.", 1000);
   };
 
   return (
