@@ -1,0 +1,1597 @@
+{
+  "Home": {
+    "en": "Home",
+    "uz": "Bosh sahifa",
+    "ru": "Главная"
+  },
+  "Products": {
+    "en": "Products",
+    "uz": "Mahsulotlar",
+    "ru": "Товары"
+  },
+  "Orders": {
+    "en": "Orders",
+    "uz": "Buyurtmalar",
+    "ru": "Заказы"
+  },
+  "My Page": {
+    "en": "My Page",
+    "uz": "Profilim",
+    "ru": "Мой профиль"
+  },
+  "Help": {
+    "en": "Help",
+    "uz": "Yordam",
+    "ru": "Помощь"
+  },
+  "Login": {
+    "en": "Login",
+    "uz": "Kirish",
+    "ru": "Войти"
+  },
+  "Logout": {
+    "en": "Logout",
+    "uz": "Chiqish",
+    "ru": "Выйти"
+  },
+  "Logged out.": {
+    "en": "Logged out.",
+    "uz": "Hisobdan chiqildi.",
+    "ru": "Вы вышли из аккаунта."
+  },
+  "Sign up": {
+    "en": "Sign up",
+    "uz": "Ro‘yxatdan o‘tish",
+    "ru": "Регистрация"
+  },
+  "Signup Form": {
+    "en": "Signup Form",
+    "uz": "Ro‘yxatdan o‘tish",
+    "ru": "Регистрация"
+  },
+  "Login Form": {
+    "en": "Login Form",
+    "uz": "Hisobga kirish",
+    "ru": "Вход в аккаунт"
+  },
+  "username": {
+    "en": "username",
+    "uz": "Foydalanuvchi nomi",
+    "ru": "Имя пользователя"
+  },
+  "Username": {
+    "en": "Username",
+    "uz": "Foydalanuvchi nomi",
+    "ru": "Имя пользователя"
+  },
+  "phone number": {
+    "en": "phone number",
+    "uz": "Telefon raqami",
+    "ru": "Номер телефона"
+  },
+  "password": {
+    "en": "password",
+    "uz": "Parol",
+    "ru": "Пароль"
+  },
+  "Please wait…": {
+    "en": "Please wait…",
+    "uz": "Kuting…",
+    "ru": "Подождите…"
+  },
+  "Language": {
+    "en": "Language",
+    "uz": "Til",
+    "ru": "Язык"
+  },
+  "Account menu": {
+    "en": "Account menu",
+    "uz": "Hisob menyusi",
+    "ru": "Меню аккаунта"
+  },
+  "Main navigation": {
+    "en": "Main navigation",
+    "uz": "Asosiy menyu",
+    "ru": "Основная навигация"
+  },
+  "Open navigation": {
+    "en": "Open navigation",
+    "uz": "Menyuni ochish",
+    "ru": "Открыть меню"
+  },
+  "Close navigation": {
+    "en": "Close navigation",
+    "uz": "Menyuni yopish",
+    "ru": "Закрыть меню"
+  },
+  "Close": {
+    "en": "Close",
+    "uz": "Yopish",
+    "ru": "Закрыть"
+  },
+  "Appliances for your everyday life.": {
+    "en": "Appliances for your everyday life.",
+    "uz": "Kundalik hayotingiz uchun maishiy texnika.",
+    "ru": "Бытовая техника для повседневной жизни."
+  },
+  "Explore products, compare specifications and try demo orders.": {
+    "en": "Explore products, compare specifications and try demo orders.",
+    "uz": "Mahsulotlarni ko‘ring, xususiyatlarini solishtiring va demo buyurtmani sinang.",
+    "ru": "Изучайте товары, сравнивайте характеристики и пробуйте демозаказы."
+  },
+  "Catalog details": {
+    "en": "Catalog details",
+    "uz": "Katalog ma’lumotlari",
+    "ru": "Информация о товарах"
+  },
+  "Check available specifications": {
+    "en": "Check available specifications",
+    "uz": "Mavjud xususiyatlarni tekshiring",
+    "ru": "Проверяйте доступные характеристики"
+  },
+  "Product comparison": {
+    "en": "Product comparison",
+    "uz": "Mahsulotlarni taqqoslash",
+    "ru": "Сравнение товаров"
+  },
+  "Compare up to three products": {
+    "en": "Compare up to three products",
+    "uz": "Uchtagacha mahsulotni taqqoslang",
+    "ru": "Сравнивайте до трёх товаров"
+  },
+  "Demo orders": {
+    "en": "Demo orders",
+    "uz": "Demo buyurtmalar",
+    "ru": "Демозаказы"
+  },
+  "No real payment": {
+    "en": "No real payment",
+    "uz": "Haqiqiy to‘lov yo‘q",
+    "ru": "Без реальной оплаты"
+  },
+  "MOST VIEWED": {
+    "en": "MOST VIEWED",
+    "uz": "KO‘P KO‘RILGAN",
+    "ru": "ПОПУЛЯРНОЕ"
+  },
+  "Popular this month": {
+    "en": "Most viewed products",
+    "uz": "Ko‘p ko‘rilgan mahsulotlar",
+    "ru": "Популярные товары"
+  },
+  "Popular products are not available.": {
+    "en": "Popular products are not available.",
+    "uz": "Hozircha mahsulotlar mavjud emas.",
+    "ru": "Популярных товаров пока нет."
+  },
+  "Popular products could not be loaded.": {
+    "en": "Popular products could not be loaded.",
+    "uz": "Mahsulotlar yuklanmadi.",
+    "ru": "Не удалось загрузить популярные товары."
+  },
+  "Loading popular products…": {
+    "en": "Loading popular products…",
+    "uz": "Mahsulotlar yuklanmoqda…",
+    "ru": "Загрузка популярных товаров…"
+  },
+  "Loading deals…": {
+    "en": "Loading deals…",
+    "uz": "Chegirmalar yuklanmoqda…",
+    "ru": "Загрузка скидок…"
+  },
+  "Deals could not be loaded.": {
+    "en": "Deals could not be loaded.",
+    "uz": "Chegirmalar yuklanmadi.",
+    "ru": "Не удалось загрузить скидки."
+  },
+  "LIMITED WINDOW": {
+    "en": "DEALS",
+    "uz": "CHEGIRMALAR",
+    "ru": "СКИДКИ"
+  },
+  "This week's deals": {
+    "en": "Catalog deals",
+    "uz": "Katalogdagi chegirmalar",
+    "ru": "Скидки в каталоге"
+  },
+  "No deals right now — check back soon.": {
+    "en": "No deals right now — check back soon.",
+    "uz": "Hozircha chegirmali mahsulotlar yo‘q.",
+    "ru": "Товаров со скидкой пока нет."
+  },
+  "COMPARE": {
+    "en": "COMPARE",
+    "uz": "TAQQOSLASH",
+    "ru": "СРАВНЕНИЕ"
+  },
+  "Find a product that fits your needs": {
+    "en": "Find a product that fits your needs",
+    "uz": "Ehtiyojingizga mos mahsulotni toping",
+    "ru": "Найдите товар под ваши задачи"
+  },
+  "Compare up to three products using the specifications available in the catalog.": {
+    "en": "Compare up to three products using the specifications available in the catalog.",
+    "uz": "Katalogdagi mavjud xususiyatlar bo‘yicha uchtagacha mahsulotni taqqoslang.",
+    "ru": "Сравнивайте до трёх товаров по доступным характеристикам каталога."
+  },
+  "Explore products": {
+    "en": "Explore products",
+    "uz": "Mahsulotlarni ko‘rish",
+    "ru": "Смотреть товары"
+  },
+  "Explore the catalog and compare available product specifications. Orders and payment confirmation are demonstrations.": {
+    "en": "Explore the catalog and compare available product specifications. Orders and payment confirmation are demonstrations.",
+    "uz": "Katalogni ko‘ring va mavjud xususiyatlarni solishtiring. Buyurtmalar va to‘lov tasdiqlash demo tarzida ishlaydi.",
+    "ru": "Изучайте каталог и сравнивайте характеристики. Заказы и подтверждение оплаты работают в деморежиме."
+  },
+  "Andijan · Tashkent · Samarkand": {
+    "en": "Andijan · Tashkent · Samarkand",
+    "uz": "Andijon · Toshkent · Samarqand",
+    "ru": "Андижан · Ташкент · Самарканд"
+  },
+  "Sections": {
+    "en": "Sections",
+    "uz": "Bo‘limlar",
+    "ru": "Разделы"
+  },
+  "Find us": {
+    "en": "Find us",
+    "uz": "Aloqa",
+    "ru": "Контакты"
+  },
+  "Tashkent City, Tashkent": {
+    "en": "Tashkent City, Tashkent",
+    "uz": "Toshkent shahri",
+    "ru": "Ташкент"
+  },
+  "Mon–Sun · 9:00–20:00": {
+    "en": "Mon–Sun · 9:00–20:00",
+    "uz": "Du–Ya · 9:00–20:00",
+    "ru": "Пн–Вс · 9:00–20:00"
+  },
+  "© Copyright Devex Global, All rights reserved.": {
+    "en": "© Copyright Devex Global, All rights reserved.",
+    "uz": "© Devex Global. Barcha huquqlar himoyalangan.",
+    "ru": "© Devex Global. Все права защищены."
+  },
+  "CATALOG": {
+    "en": "CATALOG",
+    "uz": "KATALOG",
+    "ru": "КАТАЛОГ"
+  },
+  "All products": {
+    "en": "All products",
+    "uz": "Barcha mahsulotlar",
+    "ru": "Все товары"
+  },
+  "Browse products and check their available specifications.": {
+    "en": "Browse products and check their available specifications.",
+    "uz": "Mahsulotlarni ko‘ring va mavjud xususiyatlarini tekshiring.",
+    "ru": "Изучайте товары и доступные характеристики."
+  },
+  "Search products": {
+    "en": "Search products",
+    "uz": "Mahsulot qidirish",
+    "ru": "Поиск товаров"
+  },
+  "Search": {
+    "en": "Search",
+    "uz": "Qidirish",
+    "ru": "Поиск"
+  },
+  "Filter by brand": {
+    "en": "Filter by brand",
+    "uz": "Brend bo‘yicha saralash",
+    "ru": "Фильтр по бренду"
+  },
+  "Brand (exact name)": {
+    "en": "Brand (exact name)",
+    "uz": "Brend (aniq nomi)",
+    "ru": "Бренд (точное название)"
+  },
+  "All": {
+    "en": "All",
+    "uz": "Barchasi",
+    "ru": "Все"
+  },
+  "KITCHEN": {
+    "en": "Kitchen",
+    "uz": "Oshxona",
+    "ru": "Кухня"
+  },
+  "LAUNDRY": {
+    "en": "Laundry",
+    "uz": "Kir yuvish",
+    "ru": "Стирка"
+  },
+  "CLIMATE": {
+    "en": "Climate",
+    "uz": "Iqlim texnikasi",
+    "ru": "Климатическая техника"
+  },
+  "CLEANING": {
+    "en": "Cleaning",
+    "uz": "Tozalash",
+    "ru": "Уборка"
+  },
+  "ENTERTAINMENT": {
+    "en": "Entertainment",
+    "uz": "Ko‘ngilochar texnika",
+    "ru": "Развлечения"
+  },
+  "Kitchen": {
+    "en": "Kitchen",
+    "uz": "Oshxona",
+    "ru": "Кухня"
+  },
+  "Laundry": {
+    "en": "Laundry",
+    "uz": "Kir yuvish",
+    "ru": "Стирка"
+  },
+  "New": {
+    "en": "New",
+    "uz": "Yangi",
+    "ru": "Новинки"
+  },
+  "Price": {
+    "en": "Price",
+    "uz": "Narx",
+    "ru": "Цена"
+  },
+  "Price: high first": {
+    "en": "Price: high first",
+    "uz": "Avval qimmatlari",
+    "ru": "Сначала дороже"
+  },
+  "Deals only": {
+    "en": "Deals only",
+    "uz": "Faqat chegirmalar",
+    "ru": "Только со скидкой"
+  },
+  "Views": {
+    "en": "Views",
+    "uz": "Ko‘rishlar",
+    "ru": "Просмотры"
+  },
+  "Loading catalog…": {
+    "en": "Loading catalog…",
+    "uz": "Katalog yuklanmoqda…",
+    "ru": "Загрузка каталога…"
+  },
+  "The catalog could not be loaded. Please retry.": {
+    "en": "The catalog could not be loaded. Please retry.",
+    "uz": "Katalog yuklanmadi. Qayta urinib ko‘ring.",
+    "ru": "Не удалось загрузить каталог. Попробуйте ещё раз."
+  },
+  "products found": {
+    "en": "products found",
+    "uz": "ta mahsulot topildi",
+    "ru": "товаров найдено"
+  },
+  "No products match these filters.": {
+    "en": "No products match these filters.",
+    "uz": "Bu filterlarga mos mahsulot topilmadi.",
+    "ru": "По этим фильтрам товары не найдены."
+  },
+  "In stock": {
+    "en": "In stock",
+    "uz": "Mavjud",
+    "ru": "В наличии"
+  },
+  "{{count}} left": {
+    "en": "{{count}} left",
+    "uz": "{{count}} ta qoldi",
+    "ru": "Осталось: {{count}}"
+  },
+  "No warranty": {
+    "en": "No warranty",
+    "uz": "Kafolat yo‘q",
+    "ru": "Без гарантии"
+  },
+  "{{count}}yr warranty": {
+    "en": "{{count}}yr warranty",
+    "uz": "{{count}} yil kafolat",
+    "ru": "Гарантия: {{count}} г."
+  },
+  "was $": {
+    "en": "was $",
+    "uz": "Avval $",
+    "ru": "Ранее $"
+  },
+  "mo · $": {
+    "en": "mo · $",
+    "uz": "oy · $",
+    "ru": "мес. · $"
+  },
+  "months · $": {
+    "en": "months · $",
+    "uz": "oy · $",
+    "ru": "мес. · $"
+  },
+  "/month": {
+    "en": "/month",
+    "uz": "/oy",
+    "ru": "/мес."
+  },
+  "Final month: ${{amount}}": {
+    "en": "Final month: ${{amount}}",
+    "uz": "Oxirgi oy: ${{amount}}",
+    "ru": "Последний месяц: ${{amount}}"
+  },
+  "Add {{name}} to basket": {
+    "en": "Add {{name}} to basket",
+    "uz": "{{name}}ni savatga qo‘shish",
+    "ru": "Добавить {{name}} в корзину"
+  },
+  "Add To Basket": {
+    "en": "Add To Basket",
+    "uz": "Savatga qo‘shish",
+    "ru": "В корзину"
+  },
+  "Loading product…": {
+    "en": "Loading product…",
+    "uz": "Mahsulot yuklanmoqda…",
+    "ru": "Загрузка товара…"
+  },
+  "Product could not be loaded or is no longer available.": {
+    "en": "Product could not be loaded or is no longer available.",
+    "uz": "Mahsulot yuklanmadi yoki endi mavjud emas.",
+    "ru": "Не удалось загрузить товар или он больше недоступен."
+  },
+  "Not provided": {
+    "en": "Not provided",
+    "uz": "Ma’lumot berilmagan",
+    "ru": "Не указано"
+  },
+  "Unavailable": {
+    "en": "Unavailable",
+    "uz": "Mavjud emas",
+    "ru": "Недоступно"
+  },
+  "Unavailable product": {
+    "en": "Unavailable product",
+    "uz": "Mahsulot mavjud emas",
+    "ru": "Товар недоступен"
+  },
+  "Current page {{page}}": {
+    "en": "Current page {{page}}",
+    "uz": "Joriy sahifa {{page}}",
+    "ru": "Текущая страница {{page}}"
+  },
+  "Go to page {{page}}": {
+    "en": "Go to page {{page}}",
+    "uz": "{{page}}-sahifaga o‘tish",
+    "ru": "Перейти на страницу {{page}}"
+  },
+  "Next page": {
+    "en": "Next page",
+    "uz": "Keyingi sahifa",
+    "ru": "Следующая страница"
+  },
+  "Previous page": {
+    "en": "Previous page",
+    "uz": "Oldingi sahifa",
+    "ru": "Предыдущая страница"
+  },
+  "Brand": {
+    "en": "Brand",
+    "uz": "Brend",
+    "ru": "Бренд"
+  },
+  "Model": {
+    "en": "Model",
+    "uz": "Model",
+    "ru": "Модель"
+  },
+  "Category": {
+    "en": "Category",
+    "uz": "Kategoriya",
+    "ru": "Категория"
+  },
+  "Width": {
+    "en": "Width",
+    "uz": "Eni",
+    "ru": "Ширина"
+  },
+  "Height": {
+    "en": "Height",
+    "uz": "Bo‘yi",
+    "ru": "Высота"
+  },
+  "Depth": {
+    "en": "Depth",
+    "uz": "Chuqurligi",
+    "ru": "Глубина"
+  },
+  "Kitchen capacity": {
+    "en": "Kitchen capacity",
+    "uz": "Oshxona texnikasi sig‘imi",
+    "ru": "Объём кухонной техники"
+  },
+  "Laundry load": {
+    "en": "Laundry load",
+    "uz": "Kir yuklash hajmi",
+    "ru": "Загрузка белья"
+  },
+  "Cooling capacity": {
+    "en": "Cooling capacity",
+    "uz": "Sovitish quvvati",
+    "ru": "Мощность охлаждения"
+  },
+  "Dust capacity": {
+    "en": "Dust capacity",
+    "uz": "Chang idishi hajmi",
+    "ru": "Объём пылесборника"
+  },
+  "Screen size": {
+    "en": "Screen size",
+    "uz": "Ekran o‘lchami",
+    "ru": "Диагональ экрана"
+  },
+  "Noise": {
+    "en": "Noise",
+    "uz": "Shovqin darajasi",
+    "ru": "Уровень шума"
+  },
+  "Energy usage": {
+    "en": "Energy usage",
+    "uz": "Energiya sarfi",
+    "ru": "Энергопотребление"
+  },
+  "Energy class": {
+    "en": "Energy class",
+    "uz": "Energiya sinfi",
+    "ru": "Класс энергопотребления"
+  },
+  "Warranty": {
+    "en": "Warranty",
+    "uz": "Kafolat",
+    "ru": "Гарантия"
+  },
+  "years": {
+    "en": "years",
+    "uz": "yil",
+    "ru": "г."
+  },
+  "cm": {
+    "en": "cm",
+    "uz": "sm",
+    "ru": "см"
+  },
+  "L": {
+    "en": "L",
+    "uz": "l",
+    "ru": "л"
+  },
+  "kg": {
+    "en": "kg",
+    "uz": "kg",
+    "ru": "кг"
+  },
+  "dB": {
+    "en": "dB",
+    "uz": "dB",
+    "ru": "дБ"
+  },
+  "kWh/year": {
+    "en": "kWh/year",
+    "uz": "kWh/yil",
+    "ru": "кВт·ч/год"
+  },
+  "inches": {
+    "en": "inches",
+    "uz": "dyuym",
+    "ru": "дюймов"
+  },
+  "Compare": {
+    "en": "Compare",
+    "uz": "Taqqoslash",
+    "ru": "Сравнить"
+  },
+  "Compare {{name}}": {
+    "en": "Compare {{name}}",
+    "uz": "{{name}}ni taqqoslash",
+    "ru": "Сравнить {{name}}"
+  },
+  "Remove from comparison {{name}}": {
+    "en": "Remove from comparison {{name}}",
+    "uz": "{{name}}ni taqqoslashdan olish",
+    "ru": "Убрать {{name}} из сравнения"
+  },
+  "Remove {{name}} from comparison": {
+    "en": "Remove {{name}} from comparison",
+    "uz": "{{name}}ni taqqoslashdan olish",
+    "ru": "Убрать {{name}} из сравнения"
+  },
+  "Selected for comparison": {
+    "en": "Selected for comparison",
+    "uz": "Taqqoslash uchun tanlangan",
+    "ru": "Выбрано для сравнения"
+  },
+  "You can compare up to 3 products. Remove one to add another.": {
+    "en": "You can compare up to 3 products. Remove one to add another.",
+    "uz": "Uchtagacha mahsulotni taqqoslash mumkin. Yangisini qo‘shish uchun bittasini olib tashlang.",
+    "ru": "Можно сравнить до трёх товаров. Уберите один, чтобы добавить другой."
+  },
+  "Product comparison selection": {
+    "en": "Product comparison selection",
+    "uz": "Taqqoslash uchun tanlov",
+    "ru": "Выбор товаров для сравнения"
+  },
+  "/ 3 selected": {
+    "en": "/ 3 selected",
+    "uz": "/ 3 ta tanlangan",
+    "ru": "/ 3 выбрано"
+  },
+  "Compare selected": {
+    "en": "Compare selected",
+    "uz": "Tanlanganlarni taqqoslash",
+    "ru": "Сравнить выбранные"
+  },
+  "Clear comparison": {
+    "en": "Clear comparison",
+    "uz": "Tanlovni tozalash",
+    "ru": "Очистить сравнение"
+  },
+  "Compare products": {
+    "en": "Compare products",
+    "uz": "Mahsulotlarni taqqoslash",
+    "ru": "Сравнение товаров"
+  },
+  "Only catalog specifications are shown. Missing details are marked “Not provided”.": {
+    "en": "Only catalog specifications are shown. Missing details are marked “Not provided”.",
+    "uz": "Faqat katalogdagi xususiyatlar ko‘rsatiladi. Yetishmagan qiymatlar «Ma’lumot berilmagan» deb belgilanadi.",
+    "ru": "Показаны только данные каталога. Отсутствующие характеристики отмечены как «Не указано»."
+  },
+  "Loading current products…": {
+    "en": "Loading current products…",
+    "uz": "Joriy ma’lumotlar yuklanmoqda…",
+    "ru": "Загрузка актуальных товаров…"
+  },
+  "Some products could not be loaded or are no longer available.": {
+    "en": "Some products could not be loaded or are no longer available.",
+    "uz": "Ayrim mahsulotlar yuklanmadi yoki endi mavjud emas.",
+    "ru": "Некоторые товары не удалось загрузить или они больше недоступны."
+  },
+  "Specification": {
+    "en": "Specification",
+    "uz": "Xususiyat",
+    "ru": "Характеристика"
+  },
+  "Current price (USD)": {
+    "en": "Current price (USD)",
+    "uz": "Joriy narx (USD)",
+    "ru": "Текущая цена (USD)"
+  },
+  "Available stock": {
+    "en": "Available stock",
+    "uz": "Mavjud miqdor",
+    "ru": "Остаток на складе"
+  },
+  "Close comparison": {
+    "en": "Close comparison",
+    "uz": "Taqqoslashni yopish",
+    "ru": "Закрыть сравнение"
+  },
+  "Cart": {
+    "en": "Cart",
+    "uz": "Savat",
+    "ru": "Корзина"
+  },
+  "cart": {
+    "en": "cart",
+    "uz": "Savat",
+    "ru": "Корзина"
+  },
+  "Clear cart": {
+    "en": "Clear cart",
+    "uz": "Savatni tozalash",
+    "ru": "Очистить корзину"
+  },
+  "Cart Products:": {
+    "en": "Cart Products:",
+    "uz": "Savatdagi mahsulotlar:",
+    "ru": "Товары в корзине:"
+  },
+  "Cart is empty!": {
+    "en": "Cart is empty!",
+    "uz": "Savat bo‘sh!",
+    "ru": "Корзина пуста!"
+  },
+  "Final price and availability are checked when you place the order.": {
+    "en": "Final price and availability are checked when you place the order.",
+    "uz": "Yakuniy narx va mavjudlik buyurtma vaqtida tekshiriladi.",
+    "ru": "Итоговая цена и наличие проверяются при оформлении заказа."
+  },
+  "Remove {{name}}": {
+    "en": "Remove {{name}}",
+    "uz": "{{name}}ni olib tashlash",
+    "ru": "Убрать {{name}}"
+  },
+  "Decrease {{name}}": {
+    "en": "Decrease {{name}}",
+    "uz": "{{name}} miqdorini kamaytirish",
+    "ru": "Уменьшить количество {{name}}"
+  },
+  "Increase {{name}}": {
+    "en": "Increase {{name}}",
+    "uz": "{{name}} miqdorini oshirish",
+    "ru": "Увеличить количество {{name}}"
+  },
+  "Estimated total: $": {
+    "en": "Estimated total: $",
+    "uz": "Taxminiy jami: $",
+    "ru": "Примерная сумма: $"
+  },
+  "Placing order…": {
+    "en": "Placing order…",
+    "uz": "Buyurtma yuborilmoqda…",
+    "ru": "Оформление заказа…"
+  },
+  "Order": {
+    "en": "Order",
+    "uz": "Buyurtma berish",
+    "ru": "Оформить заказ"
+  },
+  "Please sign in before placing an order.": {
+    "en": "Please sign in before placing an order.",
+    "uz": "Buyurtma berish uchun hisobga kiring.",
+    "ru": "Войдите, чтобы оформить заказ."
+  },
+  "Demo payment: no money is charged. Do not enter card details.": {
+    "en": "Demo payment: no money is charged. Do not enter card details.",
+    "uz": "Demo to‘lov: pul yechilmaydi. Karta ma’lumotlarini kiritmang.",
+    "ru": "Демооплата: деньги не списываются. Не вводите данные карты."
+  },
+  "Order placed. Server total: $": {
+    "en": "Order placed. Server total: $",
+    "uz": "Buyurtma yaratildi. Yakuniy summa: $",
+    "ru": "Заказ создан. Итоговая сумма: $"
+  },
+  "Order sections": {
+    "en": "Order sections",
+    "uz": "Buyurtma bo‘limlari",
+    "ru": "Разделы заказов"
+  },
+  "PAUSED ORDERS": {
+    "en": "PAUSED ORDERS",
+    "uz": "KUTILAYOTGAN",
+    "ru": "ОЖИДАЮТ"
+  },
+  "PROCESS ORDERS": {
+    "en": "PROCESS ORDERS",
+    "uz": "TASDIQLANGAN",
+    "ru": "ПОДТВЕРЖДЕНЫ"
+  },
+  "FINISHED ORDERS": {
+    "en": "FINISHED ORDERS",
+    "uz": "YAKUNLANGAN",
+    "ru": "ЗАВЕРШЕНЫ"
+  },
+  "Historical order — view only.": {
+    "en": "Historical order — view only.",
+    "uz": "Eski buyurtma — faqat ko‘rish uchun.",
+    "ru": "Архивный заказ — только просмотр."
+  },
+  "Products: $": {
+    "en": "Products: $",
+    "uz": "Mahsulotlar: $",
+    "ru": "Товары: $"
+  },
+  "Delivery: $": {
+    "en": "Delivery: $",
+    "uz": "Yetkazish: $",
+    "ru": "Доставка: $"
+  },
+  "Total: $": {
+    "en": "Total: $",
+    "uz": "Jami: $",
+    "ru": "Итого: $"
+  },
+  "Cancel": {
+    "en": "Cancel",
+    "uz": "Bekor qilish",
+    "ru": "Отменить"
+  },
+  "Demo confirmation": {
+    "en": "Demo confirmation",
+    "uz": "Demo tasdiqlash",
+    "ru": "Демоподтверждение"
+  },
+  "Mark received": {
+    "en": "Mark received",
+    "uz": "Qabul qilinganini belgilash",
+    "ru": "Отметить получение"
+  },
+  "No orders in this section.": {
+    "en": "No orders in this section.",
+    "uz": "Bu bo‘limda buyurtma yo‘q.",
+    "ru": "В этом разделе нет заказов."
+  },
+  "Cancel this order and release its stock?": {
+    "en": "Cancel this order and release its stock?",
+    "uz": "Buyurtma bekor qilinib, mahsulot zaxirasi qaytarilsinmi?",
+    "ru": "Отменить заказ и вернуть товар в доступный остаток?"
+  },
+  "Confirm this DEMO order? No money will be charged.": {
+    "en": "Confirm this DEMO order? No money will be charged.",
+    "uz": "DEMO buyurtmani tasdiqlaysizmi? Pul yechilmaydi.",
+    "ru": "Подтвердить ДЕМОзаказ? Деньги не списываются."
+  },
+  "Confirm that this demo order has been received?": {
+    "en": "Confirm that this demo order has been received?",
+    "uz": "Demo buyurtma qabul qilinganini tasdiqlaysizmi?",
+    "ru": "Подтвердить получение демозаказа?"
+  },
+  "Customer": {
+    "en": "Customer",
+    "uz": "Xaridor",
+    "ru": "Покупатель"
+  },
+  "Store": {
+    "en": "Store",
+    "uz": "Do‘kon",
+    "ru": "Магазин"
+  },
+  "Modify Member Details": {
+    "en": "Modify Member Details",
+    "uz": "Profilni tahrirlash",
+    "ru": "Редактирование профиля"
+  },
+  "Profile image": {
+    "en": "Profile image",
+    "uz": "Profil rasmi",
+    "ru": "Фото профиля"
+  },
+  "Upload image": {
+    "en": "Upload image",
+    "uz": "Rasm yuklash",
+    "ru": "Загрузить фото"
+  },
+  "JPEG or PNG, up to 5 MB.": {
+    "en": "JPEG or PNG, up to 5 MB.",
+    "uz": "JPEG yoki PNG, 5 MB gacha.",
+    "ru": "JPEG или PNG, до 5 МБ."
+  },
+  "Profile saved.": {
+    "en": "Profile saved.",
+    "uz": "Profil saqlandi.",
+    "ru": "Профиль сохранён."
+  },
+  "Phone": {
+    "en": "Phone",
+    "uz": "Telefon",
+    "ru": "Телефон"
+  },
+  "Address": {
+    "en": "Address",
+    "uz": "Manzil",
+    "ru": "Адрес"
+  },
+  "Description": {
+    "en": "Description",
+    "uz": "Tavsif",
+    "ru": "Описание"
+  },
+  "Save": {
+    "en": "Save",
+    "uz": "Saqlash",
+    "ru": "Сохранить"
+  },
+  "Saving…": {
+    "en": "Saving…",
+    "uz": "Saqlanmoqda…",
+    "ru": "Сохранение…"
+  },
+  "Checking session": {
+    "en": "Checking session",
+    "uz": "Hisob tekshirilmoqda",
+    "ru": "Проверка сессии"
+  },
+  "Unable to check your session. Please try again.": {
+    "en": "Unable to check your session. Please try again.",
+    "uz": "Hisob holati tekshirilmadi. Qayta urinib ko‘ring.",
+    "ru": "Не удалось проверить сессию. Попробуйте ещё раз."
+  },
+  "Retry": {
+    "en": "Retry",
+    "uz": "Qayta urinish",
+    "ru": "Повторить"
+  },
+  "Retry catalog": {
+    "en": "Retry catalog",
+    "uz": "Katalogni qayta yuklash",
+    "ru": "Повторить загрузку каталога"
+  },
+  "Retry product": {
+    "en": "Retry product",
+    "uz": "Mahsulotni qayta yuklash",
+    "ru": "Повторить загрузку товара"
+  },
+  "Retry products": {
+    "en": "Retry products",
+    "uz": "Mahsulotlarni qayta yuklash",
+    "ru": "Повторить загрузку товаров"
+  },
+  "Retry deals": {
+    "en": "Retry deals",
+    "uz": "Chegirmalarni qayta yuklash",
+    "ru": "Повторить загрузку скидок"
+  },
+  "Retry comparison": {
+    "en": "Retry comparison",
+    "uz": "Taqqoslashni qayta yuklash",
+    "ru": "Повторить загрузку сравнения"
+  },
+  "TERMS": {
+    "en": "TERMS",
+    "uz": "QOIDALAR",
+    "ru": "ПРАВИЛА"
+  },
+  "FAQ": {
+    "en": "FAQ",
+    "uz": "SAVOL-JAVOB",
+    "ru": "ВОПРОСЫ"
+  },
+  "CONTACT": {
+    "en": "CONTACT",
+    "uz": "ALOQA",
+    "ru": "КОНТАКТЫ"
+  },
+  "Contact": {
+    "en": "Contact",
+    "uz": "Aloqa",
+    "ru": "Контакты"
+  },
+  "Help sections": {
+    "en": "Help sections",
+    "uz": "Yordam bo‘limlari",
+    "ru": "Разделы помощи"
+  },
+  "Contact the seller for confirmed product and purchase information.": {
+    "en": "Contact the seller for confirmed product and purchase information.",
+    "uz": "Mahsulot va xarid haqidagi tasdiqlangan ma’lumotni sotuvchidan oling.",
+    "ru": "Уточняйте информацию о товаре и покупке у продавца."
+  },
+  "Price and stock": {
+    "en": "Price and stock",
+    "uz": "Narx va zaxira",
+    "ru": "Цена и остаток"
+  },
+  "The server checks current prices and stock when an order is placed. Cart prices are estimates.": {
+    "en": "The server checks current prices and stock when an order is placed. Cart prices are estimates.",
+    "uz": "Buyurtma berilganda joriy narx va zaxira serverda tekshiriladi. Savatdagi narxlar taxminiy.",
+    "ru": "При оформлении заказа сервер проверяет цены и остатки. Цены в корзине предварительные."
+  },
+  "Installment display": {
+    "en": "Installment display",
+    "uz": "Oylik narx ko‘rinishi",
+    "ru": "Отображение платежей по месяцам"
+  },
+  "Monthly amounts are a price breakdown for demonstration, not a credit agreement. The final month may include a rounding remainder.": {
+    "en": "Monthly amounts are a price breakdown for demonstration, not a credit agreement. The final month may include a rounding remainder.",
+    "uz": "Oylik summa narxning demo taqsimoti, kredit shartnomasi emas. Oxirgi oyga yaxlitlash qoldig‘i qo‘shilishi mumkin.",
+    "ru": "Месячные суммы показывают демонстрационное распределение цены, а не кредитный договор. Последний месяц может включать остаток округления."
+  },
+  "Cancellation": {
+    "en": "Cancellation",
+    "uz": "Bekor qilish",
+    "ru": "Отмена"
+  },
+  "A paused demo order can be cancelled. Confirmed and finished orders cannot be cancelled in this flow.": {
+    "en": "A paused demo order can be cancelled. Confirmed and finished orders cannot be cancelled in this flow.",
+    "uz": "Kutilayotgan demo buyurtmani bekor qilish mumkin. Bu oqimda tasdiqlangan yoki yakunlangan buyurtma bekor qilinmaydi.",
+    "ru": "Ожидающий демозаказ можно отменить. Подтверждённые и завершённые заказы в этом процессе отменить нельзя."
+  },
+  "Product information": {
+    "en": "Product information",
+    "uz": "Mahsulot haqida ma’lumot",
+    "ru": "Информация о товаре"
+  },
+  "Missing specifications are marked as not provided. Confirm warranty, delivery, installation and returns directly with the seller before any real purchase.": {
+    "en": "Missing specifications are marked as not provided. Confirm warranty, delivery, installation and returns directly with the seller before any real purchase.",
+    "uz": "Yetishmagan xususiyatlar berilmagan deb belgilanadi. Haqiqiy xariddan oldin kafolat, yetkazish, o‘rnatish va qaytarish shartlarini sotuvchidan aniqlang.",
+    "ru": "Отсутствующие характеристики отмечены отдельно. Перед реальной покупкой уточните у продавца гарантию, доставку, установку и возврат."
+  },
+  "This version demonstrates ordering. No money is charged and delivery is not arranged by the demo.": {
+    "en": "This version demonstrates ordering. No money is charged and delivery is not arranged by the demo.",
+    "uz": "Bu versiya buyurtma oqimini namoyish qiladi. Pul yechilmaydi va demo orqali yetkazish tashkil etilmaydi.",
+    "ru": "Эта версия демонстрирует оформление заказов. Деньги не списываются, доставка в деморежиме не организуется."
+  },
+  "Is payment real?": {
+    "en": "Is payment real?",
+    "uz": "To‘lov haqiqiymi?",
+    "ru": "Оплата настоящая?"
+  },
+  "No. Demo confirmation does not charge money. Do not enter card details.": {
+    "en": "No. Demo confirmation does not charge money. Do not enter card details.",
+    "uz": "Yo‘q. Demo tasdiqlashda pul yechilmaydi. Karta ma’lumotlarini kiritmang.",
+    "ru": "Нет. Демоподтверждение не списывает деньги. Не вводите данные карты."
+  },
+  "How can I compare products?": {
+    "en": "How can I compare products?",
+    "uz": "Mahsulotlarni qanday taqqoslayman?",
+    "ru": "Как сравнить товары?"
+  },
+  "Select up to three products in the catalog and open the comparison table.": {
+    "en": "Select up to three products in the catalog and open the comparison table.",
+    "uz": "Katalogdan uchtagacha mahsulot tanlab, taqqoslash jadvalini oching.",
+    "ru": "Выберите до трёх товаров в каталоге и откройте таблицу сравнения."
+  },
+  "Why are some specifications missing?": {
+    "en": "Why are some specifications missing?",
+    "uz": "Nega ayrim xususiyatlar yo‘q?",
+    "ru": "Почему некоторых характеристик нет?"
+  },
+  "Only supplied catalog information is displayed. Missing details are not guessed.": {
+    "en": "Only supplied catalog information is displayed. Missing details are not guessed.",
+    "uz": "Faqat katalogga kiritilgan ma’lumot ko‘rsatiladi. Noma’lum qiymatlar taxmin qilinmaydi.",
+    "ru": "Отображаются только данные каталога. Отсутствующие значения не выдумываются."
+  },
+  "How do I cancel an order?": {
+    "en": "How do I cancel an order?",
+    "uz": "Buyurtmani qanday bekor qilaman?",
+    "ru": "Как отменить заказ?"
+  },
+  "Open your paused orders and choose Cancel. Stock is released once.": {
+    "en": "Open your paused orders and choose Cancel. Stock is released once.",
+    "uz": "Kutilayotgan buyurtmalardan «Bekor qilish»ni tanlang. Zaxira bir marta qaytariladi.",
+    "ru": "Откройте ожидающие заказы и выберите «Отменить». Остаток возвращается один раз."
+  },
+  "Are delivery and warranty guaranteed here?": {
+    "en": "Are delivery and warranty guaranteed here?",
+    "uz": "Bu yerda yetkazish va kafolat ta’minlanadimi?",
+    "ru": "Гарантируются ли здесь доставка и гарантия?"
+  },
+  "This demo does not arrange delivery or warranty claims. Ask the seller for confirmed terms.": {
+    "en": "This demo does not arrange delivery or warranty claims. Ask the seller for confirmed terms.",
+    "uz": "Demo yetkazish yoki kafolat murojaatini bajarmaydi. Tasdiqlangan shartlarni sotuvchidan so‘rang.",
+    "ru": "Демоверсия не организует доставку или гарантийное обслуживание. Уточняйте условия у продавца."
+  },
+  "Our Famous Brands": {
+    "en": "Catalog brands",
+    "uz": "Katalog brendlari",
+    "ru": "Бренды каталога"
+  },
+  "Our address": {
+    "en": "Our address",
+    "uz": "Manzil",
+    "ru": "Адрес"
+  },
+  "address-map": {
+    "en": "Address map",
+    "uz": "Manzil xaritasi",
+    "ru": "Карта адреса"
+  },
+  "error.REQUEST_FAILED": {
+    "en": "Unable to complete the request. Please retry.",
+    "uz": "Amal bajarilmadi. Qayta urinib ko‘ring.",
+    "ru": "Не удалось выполнить запрос. Попробуйте ещё раз."
+  },
+  "error.INVALID_CREDENTIALS": {
+    "en": "Username or password is incorrect.",
+    "uz": "Foydalanuvchi nomi yoki parol noto‘g‘ri.",
+    "ru": "Неверное имя пользователя или пароль."
+  },
+  "error.UNAUTHENTICATED": {
+    "en": "Please sign in again.",
+    "uz": "Hisobga qayta kiring.",
+    "ru": "Войдите в аккаунт снова."
+  },
+  "error.ACCOUNT_BLOCKED": {
+    "en": "This account is blocked. Contact support.",
+    "uz": "Hisob bloklangan. Yordam xizmatiga murojaat qiling.",
+    "ru": "Аккаунт заблокирован. Обратитесь в поддержку."
+  },
+  "error.ACCOUNT_EXISTS": {
+    "en": "Username or phone number is already in use.",
+    "uz": "Bu foydalanuvchi nomi yoki telefon band.",
+    "ru": "Это имя пользователя или телефон уже используются."
+  },
+  "error.FORBIDDEN": {
+    "en": "You do not have access to this action.",
+    "uz": "Bu amal uchun ruxsat yo‘q.",
+    "ru": "У вас нет доступа к этому действию."
+  },
+  "error.INVALID_INPUT": {
+    "en": "Please check your details.",
+    "uz": "Kiritilgan ma’lumotlarni tekshiring.",
+    "ru": "Проверьте введённые данные."
+  },
+  "error.CSRF_INVALID": {
+    "en": "Refresh the page and try again.",
+    "uz": "Sahifani yangilang va qayta urinib ko‘ring.",
+    "ru": "Обновите страницу и попробуйте снова."
+  },
+  "error.RATE_LIMITED": {
+    "en": "Too many attempts. Please try again later.",
+    "uz": "Urinishlar ko‘p. Birozdan so‘ng qayta urinib ko‘ring.",
+    "ru": "Слишком много попыток. Попробуйте позже."
+  },
+  "error.INVALID_IMAGE": {
+    "en": "Please select a valid JPEG or PNG image.",
+    "uz": "Haqiqiy JPEG yoki PNG rasm tanlang.",
+    "ru": "Выберите корректное изображение JPEG или PNG."
+  },
+  "error.UPLOAD_LIMIT": {
+    "en": "Image limit exceeded. Use JPEG or PNG up to 5 MB.",
+    "uz": "Rasm limiti oshdi. 5 MB gacha JPEG yoki PNG tanlang.",
+    "ru": "Превышен лимит изображения. Выберите JPEG или PNG до 5 МБ."
+  },
+  "error.OUT_OF_STOCK": {
+    "en": "An item is unavailable or the quantity exceeds stock. Update your cart.",
+    "uz": "Mahsulot mavjud emas yoki miqdor zaxiradan oshgan. Savatni yangilang.",
+    "ru": "Товар недоступен или количество превышает остаток. Обновите корзину."
+  },
+  "error.INVALID_CART": {
+    "en": "Check your cart and use whole quantities from 1 to 99.",
+    "uz": "Savatni tekshiring. Miqdor 1–99 oralig‘ida butun son bo‘lsin.",
+    "ru": "Проверьте корзину. Количество должно быть целым от 1 до 99."
+  },
+  "error.INVALID_TRANSITION": {
+    "en": "The order has changed. Refresh your orders.",
+    "uz": "Buyurtma holati o‘zgargan. Buyurtmalarni yangilang.",
+    "ru": "Статус заказа изменился. Обновите заказы."
+  },
+  "error.INVENTORY_CONFLICT": {
+    "en": "This order cannot be changed. Contact support.",
+    "uz": "Buyurtmani o‘zgartirib bo‘lmadi. Yordamga murojaat qiling.",
+    "ru": "Не удалось изменить заказ. Обратитесь в поддержку."
+  },
+  "error.IDEMPOTENCY_CONFLICT": {
+    "en": "Check your existing orders before placing a new order.",
+    "uz": "Yangi buyurtma berishdan oldin mavjud buyurtmalarni tekshiring.",
+    "ru": "Перед новым оформлением проверьте существующие заказы."
+  },
+  "error.CHECKOUT_UNAVAILABLE": {
+    "en": "Ordering is temporarily unavailable. Please try later.",
+    "uz": "Buyurtma berish vaqtincha ishlamayapti. Keyinroq urinib ko‘ring.",
+    "ru": "Оформление временно недоступно. Попробуйте позже."
+  },
+  "error.HISTORICAL_ORDER_READ_ONLY": {
+    "en": "This historical order can only be viewed.",
+    "uz": "Bu eski buyurtmani faqat ko‘rish mumkin.",
+    "ru": "Этот архивный заказ доступен только для просмотра."
+  },
+  "error.RESOURCE_NOT_FOUND": {
+    "en": "The requested information was not found.",
+    "uz": "So‘ralgan ma’lumot topilmadi.",
+    "ru": "Запрошенная информация не найдена."
+  },
+  "error.INVALID_CATALOG_FILTER": {
+    "en": "Please check the catalog filters.",
+    "uz": "Katalog filterlarini tekshiring.",
+    "ru": "Проверьте фильтры каталога."
+  },
+  "error.INVALID_PRODUCT": {
+    "en": "Please check product fields and units.",
+    "uz": "Mahsulot maydonlari va birliklarini tekshiring.",
+    "ru": "Проверьте поля товара и единицы измерения."
+  },
+  "error.INVALID_DISCOUNT": {
+    "en": "Old price must be greater than the current price, or empty.",
+    "uz": "Eski narx joriy narxdan katta bo‘lsin yoki bo‘sh qolsin.",
+    "ru": "Старая цена должна быть выше текущей или не указана."
+  },
+  "error.INVALID_PRODUCT_SPEC": {
+    "en": "The specification does not apply to this category.",
+    "uz": "Bu xususiyat tanlangan kategoriyaga mos emas.",
+    "ru": "Эта характеристика не подходит выбранной категории."
+  },
+  "error.INVALID_PRODUCT_ID": {
+    "en": "Invalid product identifier.",
+    "uz": "Mahsulot identifikatori noto‘g‘ri.",
+    "ru": "Некорректный идентификатор товара."
+  },
+  "error.PRODUCT_CHANGED": {
+    "en": "The product changed. Reload and retry.",
+    "uz": "Mahsulot o‘zgargan. Yangilab, qayta urinib ko‘ring.",
+    "ru": "Товар изменился. Обновите страницу и повторите."
+  },
+  "error.DUPLICATE_VALUE": {
+    "en": "This value is already in use.",
+    "uz": "Bu qiymat allaqachon band.",
+    "ru": "Это значение уже используется."
+  },
+  "error.PAYLOAD_TOO_LARGE": {
+    "en": "The request is too large.",
+    "uz": "Yuborilgan ma’lumot hajmi juda katta.",
+    "ru": "Запрос слишком большой."
+  },
+  "error.INVALID_JSON": {
+    "en": "Invalid request format.",
+    "uz": "So‘rov formati noto‘g‘ri.",
+    "ru": "Некорректный формат запроса."
+  },
+  "error.HTTPS_REQUIRED": {
+    "en": "A secure HTTPS connection is required.",
+    "uz": "Xavfsiz HTTPS ulanish talab qilinadi.",
+    "ru": "Требуется защищённое HTTPS-соединение."
+  },
+  "error.ORIGIN_DENIED": {
+    "en": "This site is not allowed to send this request.",
+    "uz": "Bu saytdan so‘rov yuborishga ruxsat yo‘q.",
+    "ru": "Отправка запроса с этого сайта не разрешена."
+  },
+  "error.IMAGE_REQUIRED": {
+    "en": "Please select a product image.",
+    "uz": "Mahsulot rasmini tanlang.",
+    "ru": "Выберите изображение товара."
+  },
+  "error.INTERNAL_ERROR": {
+    "en": "Unable to complete the request. Please retry.",
+    "uz": "Amal bajarilmadi. Qayta urinib ko‘ring.",
+    "ru": "Не удалось выполнить запрос. Попробуйте ещё раз."
+  },
+  "error.CREATE_FAILED": {
+    "en": "Unable to complete the request. Please retry.",
+    "uz": "Amal bajarilmadi. Qayta urinib ko‘ring.",
+    "ru": "Не удалось выполнить запрос. Попробуйте ещё раз."
+  },
+  "error.UPDATE_FAILED": {
+    "en": "Unable to complete the request. Please retry.",
+    "uz": "Amal bajarilmadi. Qayta urinib ko‘ring.",
+    "ru": "Не удалось выполнить запрос. Попробуйте ещё раз."
+  },
+  "error.VALIDATION_FAILED": {
+    "en": "Please check your details.",
+    "uz": "Kiritilgan ma’lumotlarni tekshiring.",
+    "ru": "Проверьте введённые данные."
+  },
+  "error.ORDER_NOT_FOUND": {
+    "en": "The requested information was not found.",
+    "uz": "So‘ralgan ma’lumot topilmadi.",
+    "ru": "Запрошенная информация не найдена."
+  },
+  "error.PRODUCT_NOT_FOUND": {
+    "en": "The requested information was not found.",
+    "uz": "So‘ralgan ma’lumot topilmadi.",
+    "ru": "Запрошенная информация не найдена."
+  },
+  "error.NOT_FOUND": {
+    "en": "The requested information was not found.",
+    "uz": "So‘ralgan ma’lumot topilmadi.",
+    "ru": "Запрошенная информация не найдена."
+  },
+  "error.STORE_EXISTS": {
+    "en": "Username or phone number is already in use.",
+    "uz": "Bu foydalanuvchi nomi yoki telefon band.",
+    "ru": "Это имя пользователя или телефон уже используются."
+  },
+  "error.PRODUCT_EXISTS": {
+    "en": "This value is already in use.",
+    "uz": "Bu qiymat allaqachon band.",
+    "ru": "Это значение уже используется."
+  },
+  "error.INVALID_ORDER_FILTER": {
+    "en": "Please check the catalog filters.",
+    "uz": "Katalog filterlarini tekshiring.",
+    "ru": "Проверьте фильтры каталога."
+  },
+  "error.IDEMPOTENCY_KEY_REQUIRED": {
+    "en": "Check your existing orders before placing a new order.",
+    "uz": "Yangi buyurtma berishdan oldin mavjud buyurtmalarni tekshiring.",
+    "ru": "Перед новым оформлением проверьте существующие заказы."
+  },
+  "error.CATALOG_PRICE_INVALID": {
+    "en": "Ordering is temporarily unavailable. Please try later.",
+    "uz": "Buyurtma berish vaqtincha ishlamayapti. Keyinroq urinib ko‘ring.",
+    "ru": "Оформление временно недоступно. Попробуйте позже."
+  },
+  "error.TRANSACTIONS_REQUIRED": {
+    "en": "Ordering is temporarily unavailable. Please try later.",
+    "uz": "Buyurtma berish vaqtincha ishlamayapti. Keyinroq urinib ko‘ring.",
+    "ru": "Оформление временно недоступно. Попробуйте позже."
+  },
+  "L.": {
+    "en": "L.",
+    "uz": "L.",
+    "ru": "L."
+  },
+  "P.": {
+    "en": "P.",
+    "uz": "P.",
+    "ru": "P."
+  },
+  "E.": {
+    "en": "E.",
+    "uz": "E.",
+    "ru": "E."
+  },
+  "H.": {
+    "en": "H.",
+    "uz": "H.",
+    "ru": "H."
+  },
+  "techHomeuz@gmail.com": {
+    "en": "techHomeuz@gmail.com",
+    "uz": "techHomeuz@gmail.com",
+    "ru": "techHomeuz@gmail.com"
+  },
+  "x": {
+    "en": "x",
+    "uz": "x",
+    "ru": "x"
+  },
+  "BTU": {
+    "en": "BTU",
+    "uz": "BTU",
+    "ru": "BTU"
+  },
+  "Loading orders…": {
+    "en": "Loading orders…",
+    "uz": "Buyurtmalar yuklanmoqda…",
+    "ru": "Загрузка заказов…"
+  },
+  "Retry orders": {
+    "en": "Retry orders",
+    "uz": "Buyurtmalarni qayta yuklash",
+    "ru": "Повторить загрузку заказов"
+  },
+  "year": {
+    "en": "year",
+    "uz": "yil",
+    "ru": "г."
+  },
+  "AI advisor": {
+    "en": "AI advisor",
+    "uz": "AI maslahatchi",
+    "ru": "ИИ-помощник"
+  },
+  "Find an appliance with Gemini": {
+    "en": "Find an appliance with Gemini",
+    "uz": "Gemini bilan mos texnika toping",
+    "ru": "Подберите технику с Gemini"
+  },
+  "Describe the product, your budget in USD and the specifications that matter to you.": {
+    "en": "Describe the product, your budget in USD and the specifications that matter to you.",
+    "uz": "Kerakli mahsulotni, USD’dagi byudjetingizni va muhim xususiyatlarni yozing.",
+    "ru": "Опишите нужный товар, бюджет в USD и важные характеристики."
+  },
+  "Questions are analyzed by Gemini. Do not send personal data, passwords or card details. The advisor cannot place orders or make payments.": {
+    "en": "Questions are analyzed by Gemini. Do not send personal data, passwords or card details. The advisor cannot place orders or make payments.",
+    "uz": "Savollar Gemini orqali tahlil qilinadi. Shaxsiy ma’lumot, parol yoki karta ma’lumotini yubormang. Maslahatchi buyurtma yoki to‘lov bajarmaydi.",
+    "ru": "Вопросы анализирует Gemini. Не отправляйте личные данные, пароли или реквизиты карты. Помощник не оформляет заказы и не проводит оплату."
+  },
+  "Checking advisor availability…": {
+    "en": "Checking advisor availability…",
+    "uz": "Maslahatchi holati tekshirilmoqda…",
+    "ru": "Проверка доступности помощника…"
+  },
+  "Retry advisor status": {
+    "en": "Retry advisor status",
+    "uz": "Maslahatchi holatini qayta tekshirish",
+    "ru": "Проверить доступность снова"
+  },
+  "The AI advisor is currently unavailable. You can still browse and compare products in the catalog.": {
+    "en": "The AI advisor is currently unavailable. You can still browse and compare products in the catalog.",
+    "uz": "AI maslahatchi hozircha ishlamayapti. Katalogda mahsulotlarni ko‘rish va taqqoslash mumkin.",
+    "ru": "ИИ-помощник сейчас недоступен. Вы можете просматривать и сравнивать товары в каталоге."
+  },
+  "Daily limit: {{guest}} questions for guests, {{member}} when signed in.": {
+    "en": "Daily limit: {{guest}} questions for guests, {{member}} when signed in.",
+    "uz": "Kunlik limit: mehmonlar uchun {{guest}}, hisobga kirganlar uchun {{member}} ta savol.",
+    "ru": "Дневной лимит: {{guest}} вопросов для гостей, {{member}} после входа."
+  },
+  "Advisor conversation": {
+    "en": "Advisor conversation",
+    "uz": "Maslahatchi bilan suhbat",
+    "ru": "Диалог с помощником"
+  },
+  "Your question": {
+    "en": "Your question",
+    "uz": "Savolingiz",
+    "ru": "Ваш вопрос"
+  },
+  "What are you looking for?": {
+    "en": "What are you looking for?",
+    "uz": "Qanday mahsulot qidiryapsiz?",
+    "ru": "Какой товар вы ищете?"
+  },
+  "For example: a refrigerator under 500 USD, at least 250 L.": {
+    "en": "For example: a refrigerator under 500 USD, at least 250 L.",
+    "uz": "Masalan: 500 USD’gacha, kamida 250 L muzlatgich.",
+    "ru": "Например: холодильник до 500 USD, объёмом от 250 л."
+  },
+  "{{count}} / 600 characters": {
+    "en": "{{count}} / 600 characters",
+    "uz": "{{count}} / 600 belgi",
+    "ru": "{{count}} / 600 символов"
+  },
+  "Thinking…": {
+    "en": "Thinking…",
+    "uz": "Tahlil qilinmoqda…",
+    "ru": "Анализируем…"
+  },
+  "Ask advisor": {
+    "en": "Ask advisor",
+    "uz": "Maslahatchidan so‘rash",
+    "ru": "Спросить помощника"
+  },
+  "Start a new question": {
+    "en": "Start a new question",
+    "uz": "Yangi suhbat boshlash",
+    "ru": "Начать новый диалог"
+  },
+  "Browse catalog": {
+    "en": "Browse catalog",
+    "uz": "Katalogni ko‘rish",
+    "ru": "Открыть каталог"
+  },
+  "Checking your needs and the current catalog…": {
+    "en": "Checking your needs and the current catalog…",
+    "uz": "Talablaringiz va joriy katalog tekshirilmoqda…",
+    "ru": "Проверяем запрос и актуальный каталог…"
+  },
+  "{{remaining}} of {{limit}} questions left today.": {
+    "en": "{{remaining}} of {{limit}} questions left today.",
+    "uz": "Bugun {{limit}} tadan {{remaining}} ta savol qoldi.",
+    "ru": "Сегодня осталось {{remaining}} из {{limit}} вопросов."
+  },
+  "Verified catalog suggestions": {
+    "en": "Verified catalog suggestions",
+    "uz": "Tekshirilgan katalog tavsiyalari",
+    "ru": "Подтверждённые предложения каталога"
+  },
+  "Suggested products": {
+    "en": "Suggested products",
+    "uz": "Tavsiya etilgan mahsulotlar",
+    "ru": "Предлагаемые товары"
+  },
+  "Prices and stock come from the catalog. Missing specifications are not guessed. Checkout checks availability again.": {
+    "en": "Prices and stock come from the catalog. Missing specifications are not guessed. Checkout checks availability again.",
+    "uz": "Narx va zaxira katalogdan olinadi. Noma’lum xususiyatlar taxmin qilinmaydi. Buyurtmada mavjudlik qayta tekshiriladi.",
+    "ru": "Цены и остатки взяты из каталога. Отсутствующие характеристики не выдумываются. При оформлении наличие проверяется снова."
+  },
+  "AI_MATCHED": {
+    "en": "These catalog products match the available filters. Review their specifications before choosing.",
+    "uz": "Bu mahsulotlar mavjud filterlarga mos keldi. Tanlashdan oldin xususiyatlarini tekshiring.",
+    "ru": "Эти товары соответствуют доступным фильтрам. Перед выбором изучите характеристики."
+  },
+  "AI_NO_MATCH": {
+    "en": "No verified in-stock match was found. Try adjusting your requirements or browse the catalog.",
+    "uz": "Talablarga mos, zaxirada bor mahsulot topilmadi. Talablarni o‘zgartiring yoki katalogni ko‘ring.",
+    "ru": "Подтверждённых товаров в наличии по этим условиям не найдено. Измените запрос или откройте каталог."
+  },
+  "AI_ASK_CATEGORY": {
+    "en": "What kind of appliance do you need? For example, a refrigerator, washing machine or television.",
+    "uz": "Qanday texnika kerak? Masalan, muzlatgich, kir yuvish mashinasi yoki televizor.",
+    "ru": "Какая техника вам нужна? Например, холодильник, стиральная машина или телевизор."
+  },
+  "AI_ASK_KIND": {
+    "en": "Please name the specific appliance type so unrelated products are not included.",
+    "uz": "Keraksiz mahsulotlar chiqmasligi uchun aniq texnika turini ayting.",
+    "ru": "Уточните тип техники, чтобы исключить неподходящие товары."
+  },
+  "AI_ASK_CURRENCY": {
+    "en": "Catalog prices are in USD. Please confirm your budget in USD; no currency conversion is assumed.",
+    "uz": "Katalog narxlari USD’da. Byudjetingizni USD’da aniqlashtiring; valyuta taxminan aylantirilmaydi.",
+    "ru": "Цены каталога указаны в USD. Уточните бюджет в USD: пересчёт валюты не предполагается."
+  },
+  "AI_SPEC_UNSUPPORTED": {
+    "en": "Some requirements cannot be verified with the available catalog fields. Please simplify the request or compare products in the catalog.",
+    "uz": "Ayrim talablarni mavjud katalog maydonlari bilan tekshirib bo‘lmaydi. Savolni soddalashtiring yoki katalogda taqqoslang.",
+    "ru": "Часть требований нельзя проверить по доступным данным каталога. Упростите запрос или сравните товары в каталоге."
+  },
+  "AI_SCOPE_ONLY": {
+    "en": "I can help find appliances in the catalog. I cannot execute orders, payments or instructions to reveal private information.",
+    "uz": "Katalogdan texnika topishda yordam bera olaman. Buyurtma, to‘lov yoki maxfiy ma’lumotni ochish amallarini bajarmayman.",
+    "ru": "Я помогаю искать технику в каталоге. Я не выполняю заказы, оплату или запросы на раскрытие закрытых данных."
+  },
+  "error.AI_UNAVAILABLE": {
+    "en": "The assistant is unavailable. Please try again later.",
+    "uz": "Yordamchi ishlamayapti. Keyinroq qayta urinib ko‘ring.",
+    "ru": "Помощник недоступен. Попробуйте позже."
+  },
+  "error.AI_TIMEOUT": {
+    "en": "The answer took too long. Please try again shortly.",
+    "uz": "Javob kechikdi. Birozdan keyin qayta urinib ko‘ring.",
+    "ru": "Ответ задерживается. Попробуйте чуть позже."
+  },
+  "error.AI_RESPONSE_INVALID": {
+    "en": "The answer could not be displayed. Please rephrase your question.",
+    "uz": "Javobni ko‘rsatib bo‘lmadi. Savolni boshqacha yozib ko‘ring.",
+    "ru": "Не удалось показать ответ. Переформулируйте вопрос."
+  },
+  "error.AI_LIMIT_REACHED": {
+    "en": "Your daily question limit has been reached. Please come back tomorrow.",
+    "uz": "Bugungi savollar limitingiz tugadi. Ertaga qayta foydalanishingiz mumkin.",
+    "ru": "Дневной лимит вопросов исчерпан. Возвращайтесь завтра."
+  },
+  "error.AI_RATE_LIMITED": {
+    "en": "Please wait a minute before asking again.",
+    "uz": "Qayta so‘rashdan oldin bir daqiqa kuting.",
+    "ru": "Подождите минуту перед следующим вопросом."
+  },
+  "error.AI_BUSY": {
+    "en": "The assistant is busy. Please try again later.",
+    "uz": "Yordamchi band. Keyinroq qayta urinib ko‘ring.",
+    "ru": "Помощник перегружен. Попробуйте позже."
+  },
+  "error.AI_INVALID_INPUT": {
+    "en": "Please use a question of 2–600 characters. Start a new conversation if it becomes too long.",
+    "uz": "Savol 2–600 belgidan iborat bo‘lsin. Suhbat juda uzun bo‘lsa yangisini boshlang.",
+    "ru": "Используйте вопрос длиной 2–600 символов. Если диалог слишком длинный, начните новый."
+  },
+  "error.AI_PRIVATE_INPUT": {
+    "en": "Remove personal data, passwords, contact or card details before asking.",
+    "uz": "Savoldan shaxsiy ma’lumot, parol, kontakt va karta ma’lumotlarini olib tashlang.",
+    "ru": "Удалите личные данные, пароли, контакты и реквизиты карты из вопроса."
+  },
+  "Product Assistant": {
+    "en": "Product Assistant",
+    "uz": "Texnika yordamchisi",
+    "ru": "Помощник по технике"
+  },
+  "Get to know your appliances": {
+    "en": "Get to know your appliances",
+    "uz": "Texnikangizni yaxshiroq biling",
+    "ru": "Узнайте больше о вашей технике"
+  },
+  "Practical help with everyday use, care and choosing the right appliance for your home.": {
+    "en": "Practical help with everyday use, care and choosing the right appliance for your home.",
+    "uz": "Kundalik foydalanish, parvarish va uyingiz uchun mos texnika tanlash bo‘yicha amaliy yordam.",
+    "ru": "Практическая помощь с использованием, уходом и выбором техники для вашего дома."
+  },
+  "AI-powered guidance can be mistaken. Check your appliance manual for model-specific instructions. Do not share personal data, passwords or card details.": {
+    "en": "AI-powered guidance can be mistaken. Check your appliance manual for model-specific instructions. Do not share personal data, passwords or card details.",
+    "uz": "AI tavsiyasida xato bo‘lishi mumkin. Modelingizga oid ko‘rsatmalarni texnika qo‘llanmasidan tekshiring. Shaxsiy ma’lumot, parol yoki karta ma’lumotini yubormang.",
+    "ru": "ИИ может ошибаться. Инструкции для вашей модели проверяйте в руководстве. Не отправляйте личные данные, пароли или реквизиты карты."
+  },
+  "The assistant is currently unavailable. Please try again later or browse the catalog.": {
+    "en": "The assistant is currently unavailable. Please try again later or browse the catalog.",
+    "uz": "Yordamchi hozircha ishlamayapti. Keyinroq urinib ko‘ring yoki katalogni ko‘ring.",
+    "ru": "Помощник сейчас недоступен. Попробуйте позже или откройте каталог."
+  },
+  "What would you like to know?": {
+    "en": "What would you like to know?",
+    "uz": "Nimani bilmoqchisiz?",
+    "ru": "Что вы хотите узнать?"
+  },
+  "For example: why does my washing machine smell, and how can I clean it safely?": {
+    "en": "For example: why does my washing machine smell, and how can I clean it safely?",
+    "uz": "Masalan: kir yuvish mashinamdan nega hid kelyapti va uni qanday xavfsiz tozalayman?",
+    "ru": "Например: почему стиральная машина пахнет и как её безопасно почистить?"
+  },
+  "Send question": {
+    "en": "Send question",
+    "uz": "Savolni yuborish",
+    "ru": "Отправить вопрос"
+  },
+  "New conversation": {
+    "en": "New conversation",
+    "uz": "Yangi suhbat",
+    "ru": "Новый разговор"
+  },
+  "Preparing your answer…": {
+    "en": "Preparing your answer…",
+    "uz": "Javob tayyorlanyapti…",
+    "ru": "Готовим ответ…"
+  },
+  "Try a question": {
+    "en": "Try a question",
+    "uz": "Savol namunalari",
+    "ru": "Примеры вопросов"
+  },
+  "How can I help?": {
+    "en": "How can I help?",
+    "uz": "Qanday yordam beray?",
+    "ru": "Чем помочь?"
+  },
+  "Why does my washing machine smell?": {
+    "en": "Why does my washing machine smell?",
+    "uz": "Kir yuvish mashinamdan nega hid kelyapti?",
+    "ru": "Почему стиральная машина неприятно пахнет?"
+  },
+  "How do I clean an air conditioner filter?": {
+    "en": "How do I clean an air conditioner filter?",
+    "uz": "Konditsioner filtrini qanday tozalayman?",
+    "ru": "Как почистить фильтр кондиционера?"
+  },
+  "What should I consider before buying a refrigerator?": {
+    "en": "What should I consider before buying a refrigerator?",
+    "uz": "Muzlatgich sotib olishdan oldin nimalarga e’tibor beray?",
+    "ru": "На что обратить внимание перед покупкой холодильника?"
+  }
+}

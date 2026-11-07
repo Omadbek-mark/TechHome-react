@@ -1,0 +1,138 @@
+.footer {
+  position: relative;
+  width: 100%;
+  padding: 60px 0 30px 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.9) 0%,
+      rgba(15, 23, 42, 0.75) 50%,
+      rgba(15, 23, 42, 0.95) 100%
+    ),
+    url("/img/footer.png") no-repeat center center / cover;
+  color: #e2e8f0;
+}
+
+.foot-desc-txt {
+  margin-top: 18px;
+  max-width: 360px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.sns-context {
+  margin-top: 20px;
+  width: 140px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sns-context a,
+.sns-context svg {
+  color: #e2e8f0;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.sns-context a:hover {
+  color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+.foot-category-title {
+  position: relative;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: #ffffff;
+  padding-bottom: 6px;
+}
+
+.foot-category-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #38bdf8;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease-in-out;
+}
+
+.foot-category-title:hover::after {
+  transform: scaleX(1);
+}
+
+.foot-category-link {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.foot-category-link a {
+  color: #94a3b8;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.foot-category-link a:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+.find-us {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.find-us span {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  color: #ffffff;
+  min-width: 80px;
+}
+
+.find-us div {
+  margin-left: 8px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  color: #cbd5e1;
+}
+
+.copyright-txt {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #64748b;
+}

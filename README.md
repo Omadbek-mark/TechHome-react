@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# TechHome frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+Faol papka: `/Users/omadbek/Desktop/TechHome-react`. Arxivdagi eski papkada ko‘chirilganlik eslatmasi bor; alohida dastur nusxasi yo‘q.
 
-## Available Scripts
+React 18, Redux va mavjud React Router 5 route’lari Vite asosida ishlaydi. Testlar Vitest va React Testing Library bilan; CRA ishlatilmaydi. [AGENTS.md](AGENTS.md), [upgrade rejasi](../TechHome/docs/upgrade-plan.md), [joriy hisobot](../TechHome/docs/stage-6-summary.md).
 
-In the project directory, you can run:
+## Ishga tushirish
 
-### `npm start`
+Node 22 (`nvm use`), **Yarn Classic 1.22.22** va yagona `yarn.lock` ishlatiladi. Backend alohida npm’da qoladi. Frontendda npm bilan install qilmang yoki `package-lock.json` yaratmang.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```sh
+yarn install --frozen-lockfile
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`.env.example` asosida lokal `.env.local` yarating va `VITE_API_URL`ni development backend manziliga yo‘naltiring. Eski lokal CRA qiymati mavjud bo‘lsa migratsiyada `.env.local`ga ko‘chirilgan. Faqat public URL; `VITE_*` ichiga token, parol yoki AI key yozmang. Git faqat `.env.example` namunasini kuzatadi. Lokal env fayllar ignore qilinadi.
 
-### `npm test`
+```sh
+yarn dev
+yarn typecheck
+yarn test --run
+yarn build
+yarn preview
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Dev va preview: `http://127.0.0.1:3000`; API: `http://127.0.0.1:3002`. Cookie auth uchun development’da loopback API hostname ochilgan sahifaga avtomatik moslanadi; productionda frontend/API bir sayt doirasida aniq sozlanadi; backend `WEB_ORIGINS` frontend originini ruxsat qilishi kerak. Productionda HTTPS va bir sayt ostidagi frontend/API domenlari ishlatiladi. [Auth kontrakti](../TechHome/docs/auth-security.md). Band port yashirin almashtirilmaydi. Build output: `build/`. `yarn build` TypeScriptni ham tekshiradi; `yarn test` watch, `yarn test:run` bir martalik.
 
-### `npm run build`
+`yarn preview` lokal build tekshiruvi uchun; Vite preview production hosting serveri sifatida qo‘llanmaydi. Production image Nginx orqali `8080` portida statik build va SPA fallback beradi. `VITE_API_URL=https://api.example.test sh deploy.sh` lokal image quradi. Coolify’da haqiqiy public API origin’ini build argument sifatida bering. [Deploy qo‘llanmasi](../TechHome/docs/production-deploy.md).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Izolyatsiyalangan testlar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Testlar haqiqiy backendga ulanmaydi: API chaqiruvlari mock qilinadi, qolib ketgan real request adapter tomonidan rad etiladi. Mavjud Swiper ESM moduli testda haqiqiy import qilinadi; jsdom uchun `matchMedia` taqdim etilgan. Bu responsive layout sinovining o‘rnini bosmaydi.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Test qamrovi: bosh sahifa/katalog, product detail, login modal, API config/data/error, serverdan session tiklash, CSRF, protected route gate, logout/cache va identity race. Browser sinovi faqat alohida fixture backendda; fixture’lar production katalogi/session manbasi sifatida ulanmagan.
 
-### `npm run eject`
+## Tillar va responsive
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Standart UZ, qo‘shimcha RU/EN. Navbar’dagi til tanlovi localStorage’da saqlanadi, route/filter/auth’ni o‘zgartirmaydi. `src/lib/i18n` umumiy UI/xato tarjimasi; katalogning original ma’lumoti taxminiy tarjima qilinmaydi. Responsive va keyboard/focus tekshiruvi [5-bosqich hisobotida](../TechHome/docs/stage-5-summary.md); [kontrakt](../TechHome/docs/ui-language-errors.md).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Katalog va comparison
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Katalog kontrakti](../TechHome/docs/catalog-contract.md): public `/product/catalog` total va pagination bilan; URL filter/search/brand/deals/sort saqlanadi. Detail/compare server specs va narxlarini ko‘rsatadi, unknown qiymatlar “Not provided”. Comparison uchtagacha, products/advisor route guruhidagi xotirada; ular orasida tanlov saqlanadi, reload yoki boshqa bo‘limga chiqishda tozalanadi. Xatoda retry bor, eski javob joriy filter/detail ustiga yozilmaydi.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## TechHome Product Assistant
 
-## Learn More
+Public `/advisor` foydalanish, parvarish va xarid oldi savollariga UZ/RU/ENda matnli javob beradi. Savol namunalari faqat inputni to‘ldiradi. Suhbat sahifa xotirasida saqlanadi. Backend AI sozlamalari, quota va xavfsizlik qoidalari amaldagi kontraktda. [Product Assistant kontrakti](../TechHome/docs/advisor-contract.md)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Buyurtma va demo payment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Order kontrakti](../TechHome/docs/order-checkout.md): browser faqat product ID/quantity va barqaror retry key yuboradi; yakuniy narx/stock/total backenddan. Submit/status amallari double-click’dan himoyalangan. Xatoda savat va niyat key’i saqlanadi; muvaffaqiyatda mos savat tozalanadi. Storage tozalangan yoki buyurtma holati noaniq bo‘lsa Orders’ni tekshiring. Card/CVV formasi yo‘q; demo confirmation haqiqiy pul yechmaydi. Legacy orderlar faqat ko‘rish uchun.

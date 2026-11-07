@@ -1,0 +1,24 @@
+name: Frontend CI
+on:
+  pull_request:
+  push:
+    branches: [develop, master, main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    env:
+      VITE_API_URL: https://api.techhome.example
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+      - run: yarn install --frozen-lockfile --non-interactive
+      - run: yarn test --run
+      - run: yarn build
+      - run: docker build --build-arg VITE_API_URL -t techhome-frontend:ci .
+      - run: docker run --rm --entrypoint nginx techhome-frontend:ci -t

@@ -1,0 +1,390 @@
+/* ==========================================================================
+   USER PAGE STYLES (Modern & Refactored)
+   ========================================================================== */
+
+.user-page {
+  --bg-primary: #f8f9ff;
+  --bg-card: #ffffff;
+  --bg-sidebar: #f0edff;
+  --primary-accent: #1b4332;
+  --primary-hover: #0f2c21;
+  --text-main: #1e1e24;
+  --text-muted: #59665d;
+  --text-light: #f8f8ff;
+  --input-bg: #f4f5f9;
+  --shadow-soft: 0 10px 30px rgba(108, 92, 231, 0.08);
+  --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.04);
+  --radius-lg: 24px;
+  --radius-md: 12px;
+  --transition-fast: all 0.25s ease-in-out;
+}
+
+/* Page Layout */
+.user-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background: var(--bg-primary);
+  font-family: "Poppins", "DM Sans", sans-serif;
+}
+
+/* Material UI Overrides */
+.user-page .css-heg063-MuiTabs-flexContainer {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.user-page .css-mn3ro6-MuiTabs-indicator {
+  display: none;
+}
+
+.user-page .css-1ujnqem-MuiTabs-root {
+  width: 100%;
+}
+
+/* Frame Layout */
+.user-page .my-page-frame {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  padding: 40px 20px;
+}
+
+/* Left Section (Main Content) */
+.my-page-frame .my-page-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-page-left .menu-name {
+  width: 100%;
+  padding-bottom: 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgba(108, 92, 231, 0.1);
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+}
+
+.my-page-left .menu-content,
+.my-page-left .write-content,
+.user-page .menu-content .post-content {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Right Section (Sidebar Profile Box) */
+.my-page-frame .my-page-right {
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-page .order-info-box {
+  position: relative;
+  padding: 32px 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.user-page .order-info-box .settings-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  transition: var(--transition-fast);
+}
+
+.user-page .order-info-box .settings-btn:hover {
+  transform: rotate(45deg);
+  background: var(--bg-sidebar);
+}
+
+.user-page .order-info-box .order-user-img {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-page .order-info-box .order-user-img .order-user-avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow: var(--shadow-soft);
+  border: 4px solid #ffffff;
+}
+
+.user-page .order-info-box .order-user-icon-box {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-accent);
+  color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.user-page .order-info-box .order-user-icon-box:hover {
+  transform: scale(1.1);
+}
+
+.user-page .order-info-box .order-user-name {
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--text-main);
+}
+
+.user-page .order-info-box .order-user-prof {
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.user-page .order-info-box .user-media-box {
+  margin-top: 16px;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-page .order-info-box .user-desc {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555566;
+}
+
+.user-page .order-info-box .css-1e3kzd4-MuiButtonBase-root-MuiButton-root {
+  margin-top: 24px;
+  width: 100%;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--primary-accent);
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-light);
+  box-shadow: 0 8px 20px rgba(108, 92, 231, 0.25);
+  transition: var(--transition-fast);
+}
+
+.user-page
+  .order-info-box
+  .css-1e3kzd4-MuiButtonBase-root-MuiButton-root:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Menu Components */
+.user-page .menu-box {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+.user-page .menu-box:hover {
+  background: rgba(108, 92, 231, 0.05);
+}
+
+.user-page .menu-box img {
+  width: 22px;
+  height: 22px;
+}
+
+.user-page .menu-box span {
+  margin-left: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-main);
+}
+
+/* Settings Forms */
+.user-page .settings {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.user-page .settings .input-frame {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+}
+
+.user-page .settings .short-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-page .settings .long-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-page .settings .spec-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.user-page .settings .spec-input,
+.user-page .settings .spec-textarea {
+  width: 100%;
+  border: 1px solid transparent;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: var(--text-main);
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.user-page .settings .spec-input {
+  height: 48px;
+  padding: 0 16px;
+}
+
+.user-page .settings .spec-textarea {
+  padding: 16px;
+  height: 140px;
+  resize: vertical;
+}
+
+.user-page .settings .spec-input:focus,
+.user-page .settings .spec-textarea:focus {
+  background: #ffffff;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
+}
+
+/* Avatar Change Frame */
+.user-page .settings .member-media-frame {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+}
+
+.user-page .settings .member-media-frame .mb-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--shadow-soft);
+}
+
+.user-page .settings .media-change-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-page .settings .media-change-box span {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-main);
+}
+
+.user-page .settings .media-change-box p {
+  margin: 4px 0 12px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.user-page .settings .up-del-box {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-accent);
+  color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.user-page .settings .up-del-box:hover {
+  background: var(--primary-hover);
+}
+
+.user-page .settings .up-del-box input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.user-page .settings .save-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+/* Responsive Adaptation */
+@media (max-width: 992px) {
+  .user-page .my-page-frame {
+    flex-direction: column-reverse;
+  }
+
+  .my-page-frame .my-page-right {
+    width: 100%;
+  }
+
+  .user-page .settings .input-frame {
+    flex-direction: column;
+  }
+
+  .user-page .settings .short-input {
+    width: 100%;
+  }
+}

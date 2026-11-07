@@ -1,0 +1,32 @@
+import { act, renderHook } from '@testing-library/react';
+import { expect, it, vi } from 'vitest';
+import { ReactNode } from 'react';
+import useOrderAction from './useOrderAction';
+import useBasket from './useBasket';
+import { GlobalContext } from './useGlobals';
+import { Member } from '../../lib/types/member';
+import OrderService from '../services/OrderService';
+import { OrderRecord } from '../../lib/types/order';
+import { OrderStatus } from '../../lib/enums/order.enum';
+it('locks concurrent status actions and navigates only to the returned server status', async () => {
+  vi.spyOn(window, 'confirm').mockReturnValue(true);
+  let resolve!: (value: OrderRecord) => void;
+  const update = vi.spyOn(OrderService.prototype, 'updateOrder').mockImplementation(() => new Promise(done => { resolve = done; }));
+  const setValue = vi.fn(), refresh = vi.fn();
+  const wrapper = ({ children }: { children: ReactNode }) => <GlobalContext.Provider value={{ authMember: { _id: 'buyer' } as Member, authState: 'authenticated', setOrderBuilder: refresh, orderBuilder: new Date(), refreshSession: vi.fn(), beginAuthChange: vi.fn(), setAuthMember: vi.fn() }}>{children}</GlobalContext.Provider>;
+  const { result } = renderHook(() => useOrderAction(setValue), { wrapper });
+  let first!: Promise<void>;
+  act(() => { first = result.current.update('order', OrderStatus.PROCESS); void result.current.update('order', OrderStatus.DELETE); });
+  expect(update).toHaveBeenCalledTimes(1); expect(result.current.pending).toEqual(['order']);
+  await act(async () => { resolve({ orderStatus: OrderStatus.PROCESS } as OrderRecord); await first; });
+  expect(setValue).toHaveBeenCalledWith('2'); expect(refresh).toHaveBeenCalledTimes(1);
+});
+it('does not clear a cart edited while checkout was in flight', () => {
+  const item = { _id: 'a'.repeat(24), quantity: 1, price: 1, name: 'Fixture', image: 'x', stock: 3 };
+  const { result } = renderHook(useBasket);
+  act(() => result.current.onAdd(item));
+  const snapshot = result.current.cartItems;
+  act(() => result.current.onAdd(item));
+  act(() => result.current.onDeleteAll(snapshot));
+  expect(result.current.cartItems[0].quantity).toBe(2);
+});
